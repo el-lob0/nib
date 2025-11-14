@@ -1,0 +1,3 @@
+/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles/painter.dir
+/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles/edit_cache.dir
+/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles/rebuild_cache.dir

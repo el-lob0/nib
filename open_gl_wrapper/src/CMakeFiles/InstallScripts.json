@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
