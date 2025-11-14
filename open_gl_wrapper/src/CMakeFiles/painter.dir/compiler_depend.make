@@ -76,6 +76,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   sds/sds.c \
   sds/sds.h \
   sds/sdsalloc.h \
+  paint_bg.c \
   /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/assert.h \
@@ -236,6 +237,8 @@ sds/sds.c:
 painter.c:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+
+paint_bg.c:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
 

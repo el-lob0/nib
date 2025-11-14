@@ -78,6 +78,7 @@ CMakeFiles/painter.dir/painter.c.o
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sds.c
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sds.h
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sdsalloc.h
+ /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/paint_bg.c
  /usr/include/GLFW/glfw3.h
  /usr/include/alloca.h
  /usr/include/assert.h
