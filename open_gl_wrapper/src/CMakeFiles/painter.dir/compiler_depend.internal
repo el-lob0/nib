@@ -75,8 +75,12 @@ CMakeFiles/painter.dir/painter.c.o
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/painter.c
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/KHR/khrplatform.h
  /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/glad/glad.h
+ /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sds.c
+ /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sds.h
+ /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/sds/sdsalloc.h
  /usr/include/GLFW/glfw3.h
  /usr/include/alloca.h
+ /usr/include/assert.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
  /usr/include/bits/endian.h
@@ -88,11 +92,16 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/fp-logb.h
  /usr/include/bits/libc-header-start.h
  /usr/include/bits/libm-simd-decl-stubs.h
+ /usr/include/bits/local_lim.h
  /usr/include/bits/long-double.h
  /usr/include/bits/math-vector.h
  /usr/include/bits/mathcalls-helper-functions.h
  /usr/include/bits/mathcalls-macros.h
  /usr/include/bits/mathcalls.h
+ /usr/include/bits/posix1_lim.h
+ /usr/include/bits/posix2_lim.h
+ /usr/include/bits/pthread_stack_min-dynamic.h
+ /usr/include/bits/pthread_stack_min.h
  /usr/include/bits/pthreadtypes-arch.h
  /usr/include/bits/pthreadtypes.h
  /usr/include/bits/select.h
@@ -130,12 +139,15 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/waitstatus.h
  /usr/include/bits/wchar.h
  /usr/include/bits/wordsize.h
+ /usr/include/ctype.h
  /usr/include/endian.h
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/gnu/stubs-64.h
  /usr/include/gnu/stubs.h
+ /usr/include/limits.h
  /usr/include/linmath.h
+ /usr/include/linux/limits.h
  /usr/include/math.h
  /usr/include/stdc-predef.h
  /usr/include/stdint.h
@@ -146,9 +158,11 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/types.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
+ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 painter
  /usr/lib/Scrt1.o

@@ -73,8 +73,12 @@ CMakeFiles/painter.dir/glad.c.o: glad.c \
 CMakeFiles/painter.dir/painter.c.o: painter.c \
   /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/KHR/khrplatform.h \
   /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/glad/glad.h \
+  sds/sds.c \
+  sds/sds.h \
+  sds/sdsalloc.h \
   /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
+  /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/endian.h \
@@ -86,11 +90,16 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/fp-logb.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/local_lim.h \
   /usr/include/bits/long-double.h \
   /usr/include/bits/math-vector.h \
   /usr/include/bits/mathcalls-helper-functions.h \
   /usr/include/bits/mathcalls-macros.h \
   /usr/include/bits/mathcalls.h \
+  /usr/include/bits/posix1_lim.h \
+  /usr/include/bits/posix2_lim.h \
+  /usr/include/bits/pthread_stack_min-dynamic.h \
+  /usr/include/bits/pthread_stack_min.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
   /usr/include/bits/select.h \
@@ -128,12 +137,15 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
   /usr/include/bits/wordsize.h \
+  /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/limits.h \
   /usr/include/linmath.h \
+  /usr/include/linux/limits.h \
   /usr/include/math.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
@@ -144,9 +156,11 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 painter: /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
@@ -173,8 +187,6 @@ painter: /usr/lib/Scrt1.o \
 
 /usr/lib/libc.so.6:
 
-/usr/lib/ld-linux-x86-64.so.2:
-
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
 /usr/lib/libm.so:
@@ -189,7 +201,17 @@ painter: /usr/lib/Scrt1.o \
 
 /usr/lib/crti.o:
 
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
+
+/usr/include/ctype.h:
+
+/usr/include/bits/pthread_stack_min.h:
+
 /usr/lib/Scrt1.o:
+
+/usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/bits/posix2_lim.h:
 
 /usr/include/bits/mathcalls-macros.h:
 
@@ -199,7 +221,17 @@ painter: /usr/lib/Scrt1.o \
 
 /usr/lib/libc.so:
 
+/usr/include/bits/posix1_lim.h:
+
 /usr/include/bits/fp-fast.h:
+
+/usr/include/assert.h:
+
+sds/sdsalloc.h:
+
+/usr/lib/ld-linux-x86-64.so.2:
+
+sds/sds.c:
 
 painter.c:
 
@@ -222,6 +254,8 @@ painter.c:
 /usr/include/stdlib.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
+
+/usr/include/limits.h:
 
 /usr/include/GLFW/glfw3.h:
 
@@ -263,6 +297,8 @@ painter.c:
 
 glad.c:
 
+/usr/include/linux/limits.h:
+
 /usr/include/bits/types/clock_t.h:
 
 /usr/include/bits/mathcalls.h:
@@ -295,6 +331,8 @@ glad.c:
 
 /usr/include/bits/types/sigset_t.h:
 
+sds/sds.h:
+
 /usr/include/bits/floatn-common.h:
 
 /usr/include/bits/long-double.h:
@@ -307,9 +345,13 @@ glad.c:
 
 CMakeFiles/painter.dir/painter.c.o:
 
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
+
 /usr/include/bits/wordsize.h:
 
 /usr/include/bits/types/__locale_t.h:
+
+/usr/include/bits/local_lim.h:
 
 /usr/include/bits/types/__mbstate_t.h:
 
