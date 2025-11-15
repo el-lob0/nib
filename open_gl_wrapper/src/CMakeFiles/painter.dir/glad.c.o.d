@@ -1,5 +1,5 @@
 CMakeFiles/painter.dir/glad.c.o: \
- /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/glad.c \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/glad.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/bits/libc-header-start.h /usr/include/features.h \
  /usr/include/features-time64.h /usr/include/bits/wordsize.h \
@@ -34,8 +34,8 @@ CMakeFiles/painter.dir/glad.c.o: \
  /usr/include/bits/stdlib-float.h /usr/include/string.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/glad/glad.h \
- /home/geronimo/dev/rotating_banana/open_gl_wrapper/include/KHR/khrplatform.h \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/../include/glad/glad.h \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/../include/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \

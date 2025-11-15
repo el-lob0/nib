@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/glad.c" "CMakeFiles/painter.dir/glad.c.o" "gcc" "CMakeFiles/painter.dir/glad.c.o.d"
-  "/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/painter.c" "CMakeFiles/painter.dir/painter.c.o" "gcc" "CMakeFiles/painter.dir/painter.c.o.d"
+  "/home/geronimo/dev/nib/open_gl_wrapper/src/glad.c" "CMakeFiles/painter.dir/glad.c.o" "gcc" "CMakeFiles/painter.dir/glad.c.o.d"
+  "/home/geronimo/dev/nib/open_gl_wrapper/src/painter.c" "CMakeFiles/painter.dir/painter.c.o" "gcc" "CMakeFiles/painter.dir/painter.c.o.d"
   "" "painter" "gcc" "CMakeFiles/painter.dir/link.d"
   )
 

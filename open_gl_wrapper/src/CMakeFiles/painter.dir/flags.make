@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/geronimo/dev/rotating_banana/open_gl_wrapper/include
+C_INCLUDES = -I/home/geronimo/dev/nib/open_gl_wrapper/src/../include -I/home/geronimo/dev/nib/open_gl_wrapper/src
 
 C_FLAGS = -std=gnu11
 

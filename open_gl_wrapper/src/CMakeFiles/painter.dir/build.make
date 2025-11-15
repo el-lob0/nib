@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/geronimo/dev/rotating_banana/open_gl_wrapper
+CMAKE_SOURCE_DIR = /home/geronimo/dev/nib/open_gl_wrapper/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/geronimo/dev/rotating_banana/open_gl_wrapper/src
+CMAKE_BINARY_DIR = /home/geronimo/dev/nib/open_gl_wrapper/src
 
 # Include any dependencies generated for this target.
 include CMakeFiles/painter.dir/depend.make
@@ -75,30 +75,30 @@ CMakeFiles/painter.dir/codegen:
 CMakeFiles/painter.dir/painter.c.o: CMakeFiles/painter.dir/flags.make
 CMakeFiles/painter.dir/painter.c.o: painter.c
 CMakeFiles/painter.dir/painter.c.o: CMakeFiles/painter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/painter.dir/painter.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/painter.dir/painter.c.o -MF CMakeFiles/painter.dir/painter.c.o.d -o CMakeFiles/painter.dir/painter.c.o -c /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/painter.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/nib/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/painter.dir/painter.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/painter.dir/painter.c.o -MF CMakeFiles/painter.dir/painter.c.o.d -o CMakeFiles/painter.dir/painter.c.o -c /home/geronimo/dev/nib/open_gl_wrapper/src/painter.c
 
 CMakeFiles/painter.dir/painter.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/painter.dir/painter.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/painter.c > CMakeFiles/painter.dir/painter.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/nib/open_gl_wrapper/src/painter.c > CMakeFiles/painter.dir/painter.c.i
 
 CMakeFiles/painter.dir/painter.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/painter.dir/painter.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/painter.c -o CMakeFiles/painter.dir/painter.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/nib/open_gl_wrapper/src/painter.c -o CMakeFiles/painter.dir/painter.c.s
 
 CMakeFiles/painter.dir/glad.c.o: CMakeFiles/painter.dir/flags.make
 CMakeFiles/painter.dir/glad.c.o: glad.c
 CMakeFiles/painter.dir/glad.c.o: CMakeFiles/painter.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/painter.dir/glad.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/painter.dir/glad.c.o -MF CMakeFiles/painter.dir/glad.c.o.d -o CMakeFiles/painter.dir/glad.c.o -c /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/glad.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/nib/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/painter.dir/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/painter.dir/glad.c.o -MF CMakeFiles/painter.dir/glad.c.o.d -o CMakeFiles/painter.dir/glad.c.o -c /home/geronimo/dev/nib/open_gl_wrapper/src/glad.c
 
 CMakeFiles/painter.dir/glad.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/painter.dir/glad.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/glad.c > CMakeFiles/painter.dir/glad.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/nib/open_gl_wrapper/src/glad.c > CMakeFiles/painter.dir/glad.c.i
 
 CMakeFiles/painter.dir/glad.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/painter.dir/glad.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/glad.c -o CMakeFiles/painter.dir/glad.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/nib/open_gl_wrapper/src/glad.c -o CMakeFiles/painter.dir/glad.c.s
 
 # Object files for target painter
 painter_OBJECTS = \
@@ -113,7 +113,7 @@ painter: CMakeFiles/painter.dir/glad.c.o
 painter: CMakeFiles/painter.dir/build.make
 painter: CMakeFiles/painter.dir/compiler_depend.ts
 painter: CMakeFiles/painter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable painter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/geronimo/dev/nib/open_gl_wrapper/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable painter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/painter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -125,6 +125,6 @@ CMakeFiles/painter.dir/clean:
 .PHONY : CMakeFiles/painter.dir/clean
 
 CMakeFiles/painter.dir/depend:
-	cd /home/geronimo/dev/rotating_banana/open_gl_wrapper/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/geronimo/dev/rotating_banana/open_gl_wrapper /home/geronimo/dev/rotating_banana/open_gl_wrapper /home/geronimo/dev/rotating_banana/open_gl_wrapper/src /home/geronimo/dev/rotating_banana/open_gl_wrapper/src /home/geronimo/dev/rotating_banana/open_gl_wrapper/src/CMakeFiles/painter.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/geronimo/dev/nib/open_gl_wrapper/src && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/geronimo/dev/nib/open_gl_wrapper/src /home/geronimo/dev/nib/open_gl_wrapper/src /home/geronimo/dev/nib/open_gl_wrapper/src /home/geronimo/dev/nib/open_gl_wrapper/src /home/geronimo/dev/nib/open_gl_wrapper/src/CMakeFiles/painter.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/painter.dir/depend
 
