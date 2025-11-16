@@ -29,41 +29,17 @@ typedef struct Vertex
 // this vec 3 field is the rgb color and can later be adjusted 
 
  
-const float quadVertices[] = {
-    // Coords (aPos) // TexCoords (aTexCoord)
-    -1.0f,  1.0f,  0.0f, 1.0f, // Top-left
-    -1.0f, -1.0f,  0.0f, 0.0f, // Bottom-left
-     1.0f, -1.0f,  1.0f, 0.0f, // Bottom-right
+float quadVertices[] = {
+    // x, y, u, v
+    -1,  1,  0, 0,   // Top-left → v = 0
+    -1, -1,  0, 1,   // Bottom-left → v = 1
+     1, -1,  1, 1,   // Bottom-right → v = 1
 
-    -1.0f,  1.0f,  0.0f, 1.0f, // Top-left
-     1.0f, -1.0f,  1.0f, 0.0f, // Bottom-right
-     1.0f,  1.0f,  1.0f, 1.0f  // Top-right
+    -1,  1,  0, 0,
+     1, -1,  1, 1,
+     1,  1,  1, 0
 };
 
-
-
-
-static const char* vertex_shader_text_quad =
-"#version 330 core\n"
-"layout (location = 0) in vec2 aPos;\n"
-"layout (location = 1) in vec2 aTexCoord;\n"
-"out vec2 TexCoord;\n"
-"void main()\n"
-"{\n"
-"    gl_Position = vec4(aPos.x, aPos.y, 0.0, 1.0);\n"
-"    TexCoord = aTexCoord;\n"
-"}\n";
-
-static const char* fragment_shader_text_texture =
-"#version 330 core\n"
-"out vec4 FragColor;\n"
-"in vec2 TexCoord;\n"
-"uniform sampler2D screenTexture;\n"
-"uniform vec2 u_tiling_factor;\n"
-"void main()\n"
-"{\n"
-"    FragColor = texture(screenTexture, TexCoord * u_tiling_factor);\n"
-"}\n";
 
  
 static void error_callback(int error, const char* description)
@@ -86,6 +62,7 @@ int display_buffer(GLFWwindow* window, Pixel* buffer, int w, int h)
     static GLuint tex = 0;
     static GLuint program = 0;
 
+    
     if (vao == 0) {
         glfwMakeContextCurrent(window);
         gladLoadGL();
@@ -160,7 +137,7 @@ int display_buffer(GLFWwindow* window, Pixel* buffer, int w, int h)
 
         glUseProgram(program);
         glUniform1i(glGetUniformLocation(program, "screenTexture"), 0);
-    }
+    } 
 
     // Convert float buffer [0,1] → GLubyte [0,255]
     static GLubyte* tex_buffer = NULL;
@@ -192,6 +169,8 @@ int display_buffer(GLFWwindow* window, Pixel* buffer, int w, int h)
 
     glBindVertexArray(vao);
     glDrawArrays(GL_TRIANGLES, 0, 6);
+
+
 
     return 0;
 }
