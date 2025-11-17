@@ -78,19 +78,23 @@ CMakeFiles/painter.dir/painter.c.o
  /home/geronimo/dev/nib/open_gl_wrapper/src/sds/sds.c
  /home/geronimo/dev/nib/open_gl_wrapper/src/sds/sds.h
  /home/geronimo/dev/nib/open_gl_wrapper/src/sds/sdsalloc.h
- /home/geronimo/dev/nib/open_gl_wrapper/src/paint_bg.c
+ /home/geronimo/dev/nib/open_gl_wrapper/src/display.c
  /usr/include/GLFW/glfw3.h
  /usr/include/alloca.h
  /usr/include/assert.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
+ /usr/include/bits/confname.h
  /usr/include/bits/endian.h
  /usr/include/bits/endianness.h
+ /usr/include/bits/environments.h
  /usr/include/bits/floatn-common.h
  /usr/include/bits/floatn.h
  /usr/include/bits/flt-eval-method.h
  /usr/include/bits/fp-fast.h
  /usr/include/bits/fp-logb.h
+ /usr/include/bits/getopt_core.h
+ /usr/include/bits/getopt_posix.h
  /usr/include/bits/libc-header-start.h
  /usr/include/bits/libm-simd-decl-stubs.h
  /usr/include/bits/local_lim.h
@@ -101,6 +105,7 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/mathcalls.h
  /usr/include/bits/posix1_lim.h
  /usr/include/bits/posix2_lim.h
+ /usr/include/bits/posix_opt.h
  /usr/include/bits/pthread_stack_min-dynamic.h
  /usr/include/bits/pthread_stack_min.h
  /usr/include/bits/pthreadtypes-arch.h
@@ -136,6 +141,7 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/types/timer_t.h
  /usr/include/bits/typesizes.h
  /usr/include/bits/uintn-identity.h
+ /usr/include/bits/unistd_ext.h
  /usr/include/bits/waitflags.h
  /usr/include/bits/waitstatus.h
  /usr/include/bits/wchar.h
@@ -159,6 +165,7 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/types.h
+ /usr/include/unistd.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h

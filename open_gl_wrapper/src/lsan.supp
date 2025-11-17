@@ -1,0 +1,4 @@
+interceptor_via_lib:libpango-1.0.so
+interceptor_via_lib:libgtk-3.so
+interceptor_via_lib:libfontconfig.so
+interceptor_via_lib:libdecor

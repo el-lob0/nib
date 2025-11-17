@@ -14,6 +14,12 @@ CMakeFiles/painter.dir/painter.c.o: \
  /usr/include/bits/stdint-intn.h /usr/include/bits/stdint-uintn.h \
  /usr/include/bits/stdint-least.h /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/./buffer.c \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
+ /usr/include/bits/unistd_ext.h \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/././display.c \
  /usr/include/linmath.h /usr/include/string.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
  /usr/include/strings.h /usr/include/math.h \
@@ -44,8 +50,7 @@ CMakeFiles/painter.dir/painter.c.o: \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
  /usr/include/bits/stdio_lim.h \
- /home/geronimo/dev/nib/open_gl_wrapper/src/./paint_bg.c \
- /home/geronimo/dev/nib/open_gl_wrapper/src/././sds/sds.c \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/./././sds/sds.c \
  /usr/include/ctype.h /usr/include/assert.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
@@ -53,5 +58,5 @@ CMakeFiles/painter.dir/painter.c.o: \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/pthread_stack_min.h /usr/include/bits/posix2_lim.h \
- /home/geronimo/dev/nib/open_gl_wrapper/src/././sds/sds.h \
- /home/geronimo/dev/nib/open_gl_wrapper/src/././sds/sdsalloc.h
+ /home/geronimo/dev/nib/open_gl_wrapper/src/./././sds/sds.h \
+ /home/geronimo/dev/nib/open_gl_wrapper/src/./././sds/sdsalloc.h

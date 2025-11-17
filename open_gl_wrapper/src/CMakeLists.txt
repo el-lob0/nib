@@ -13,6 +13,8 @@ include_directories(${GLFW_INCLUDE_DIRS} ../include ${CMAKE_SOURCE_DIR})  # incl
 # Add executable
 add_executable(painter painter.c glad.c)
 
+
+
 # Link libraries
 target_link_libraries(painter ${GLFW_LIBRARIES} dl m)  # Linux
 

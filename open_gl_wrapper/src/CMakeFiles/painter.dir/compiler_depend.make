@@ -76,19 +76,23 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   sds/sds.c \
   sds/sds.h \
   sds/sdsalloc.h \
-  paint_bg.c \
+  display.c \
   /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
+  /usr/include/bits/confname.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
+  /usr/include/bits/environments.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/flt-eval-method.h \
   /usr/include/bits/fp-fast.h \
   /usr/include/bits/fp-logb.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/getopt_posix.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/libm-simd-decl-stubs.h \
   /usr/include/bits/local_lim.h \
@@ -99,6 +103,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/mathcalls.h \
   /usr/include/bits/posix1_lim.h \
   /usr/include/bits/posix2_lim.h \
+  /usr/include/bits/posix_opt.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthread_stack_min.h \
   /usr/include/bits/pthreadtypes-arch.h \
@@ -134,6 +139,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/types/timer_t.h \
   /usr/include/bits/typesizes.h \
   /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/unistd_ext.h \
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
@@ -157,6 +163,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
+  /usr/include/unistd.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h \
@@ -202,13 +209,19 @@ painter: /usr/lib/Scrt1.o \
 
 /usr/lib/crti.o:
 
+/usr/include/unistd.h:
+
 /usr/include/ctype.h:
+
+/usr/include/bits/unistd_ext.h:
 
 /usr/include/bits/pthread_stack_min.h:
 
 /usr/lib/Scrt1.o:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/bits/posix_opt.h:
 
 /usr/include/bits/posix2_lim.h:
 
@@ -217,6 +230,8 @@ painter: /usr/lib/Scrt1.o \
 /usr/include/bits/mathcalls-macros.h:
 
 /usr/include/bits/libm-simd-decl-stubs.h:
+
+/usr/include/bits/getopt_posix.h:
 
 /usr/include/bits/fp-logb.h:
 
@@ -236,11 +251,11 @@ sds/sdsalloc.h:
 
 sds/sds.c:
 
+/usr/include/bits/confname.h:
+
 painter.c:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
-
-paint_bg.c:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
 
@@ -249,6 +264,8 @@ paint_bg.c:
 /usr/include/sys/types.h:
 
 /usr/lib/libm.so.6:
+
+/usr/include/bits/environments.h:
 
 /usr/include/sys/select.h:
 
@@ -267,6 +284,8 @@ paint_bg.c:
 /usr/include/bits/types/FILE.h:
 
 /usr/lib/libc_nonshared.a:
+
+/usr/include/bits/getopt_core.h:
 
 /usr/include/bits/types.h:
 
@@ -337,6 +356,8 @@ sds/sds.h:
 /usr/include/bits/floatn-common.h:
 
 /usr/include/bits/long-double.h:
+
+display.c:
 
 /usr/include/bits/pthreadtypes.h:
 
