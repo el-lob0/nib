@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/geronimo/dev/nib/open_gl_wrapper/src/../include -I/home/geronimo/dev/nib/open_gl_wrapper/src
 
-C_FLAGS = -std=gnu11
+C_FLAGS =  -fsanitize=address -g -O1 -std=gnu11
 

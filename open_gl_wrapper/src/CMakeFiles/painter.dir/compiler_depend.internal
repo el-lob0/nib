@@ -21,7 +21,9 @@ CMakeFiles/painter.dir/glad.c.o
  /usr/include/bits/stdint-intn.h
  /usr/include/bits/stdint-least.h
  /usr/include/bits/stdint-uintn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -79,12 +81,14 @@ CMakeFiles/painter.dir/painter.c.o
  /home/geronimo/dev/nib/open_gl_wrapper/src/sds/sds.h
  /home/geronimo/dev/nib/open_gl_wrapper/src/sds/sdsalloc.h
  /home/geronimo/dev/nib/open_gl_wrapper/src/display.c
+ /home/geronimo/dev/nib/open_gl_wrapper/src/buffer.c
  /usr/include/GLFW/glfw3.h
  /usr/include/alloca.h
  /usr/include/assert.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
  /usr/include/bits/confname.h
+ /usr/include/bits/cpu-set.h
  /usr/include/bits/endian.h
  /usr/include/bits/endianness.h
  /usr/include/bits/environments.h
@@ -110,15 +114,20 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/pthread_stack_min.h
  /usr/include/bits/pthreadtypes-arch.h
  /usr/include/bits/pthreadtypes.h
+ /usr/include/bits/sched.h
  /usr/include/bits/select.h
+ /usr/include/bits/setjmp.h
  /usr/include/bits/stdint-intn.h
  /usr/include/bits/stdint-least.h
  /usr/include/bits/stdint-uintn.h
+ /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
  /usr/include/bits/thread-shared-types.h
+ /usr/include/bits/time.h
  /usr/include/bits/time64.h
  /usr/include/bits/timesize.h
  /usr/include/bits/types.h
@@ -135,8 +144,12 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/types/locale_t.h
  /usr/include/bits/types/sigset_t.h
  /usr/include/bits/types/struct_FILE.h
+ /usr/include/bits/types/struct___jmp_buf_tag.h
+ /usr/include/bits/types/struct_itimerspec.h
+ /usr/include/bits/types/struct_sched_param.h
  /usr/include/bits/types/struct_timespec.h
  /usr/include/bits/types/struct_timeval.h
+ /usr/include/bits/types/struct_tm.h
  /usr/include/bits/types/time_t.h
  /usr/include/bits/types/timer_t.h
  /usr/include/bits/typesizes.h
@@ -156,6 +169,8 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/linmath.h
  /usr/include/linux/limits.h
  /usr/include/math.h
+ /usr/include/pthread.h
+ /usr/include/sched.h
  /usr/include/stdc-predef.h
  /usr/include/stdint.h
  /usr/include/stdio.h
@@ -165,6 +180,7 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/sys/cdefs.h
  /usr/include/sys/select.h
  /usr/include/sys/types.h
+ /usr/include/time.h
  /usr/include/unistd.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h
@@ -173,9 +189,12 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 painter
+ /usr/lib/libstdc++.so.6
  /usr/lib/Scrt1.o
  /usr/lib/crti.o
  /usr/lib/crtn.o
+ /usr/lib/libasan.so
+ /usr/lib/libasan_preinit.o
  /usr/lib/libc.so
  /usr/lib/libdl.a
  /usr/lib/libgcc_s.so

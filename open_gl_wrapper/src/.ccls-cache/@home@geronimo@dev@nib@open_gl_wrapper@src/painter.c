@@ -2,12 +2,19 @@
 #include <glad/glad.h>
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
-
+#include <pthread.h>
 #include "./buffer.c" // imports all that is in display.c as well
 #include <stddef.h>
-#include <stdio.h>
+// #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+
+
+
+
+volatile int buffer_ready = 0;
+
 
 typedef struct {
   int w;
@@ -21,26 +28,53 @@ static ResizeElement RESIZE_ELEMENT = {
 
 typedef struct {
   Pixel *buffer;
-  int pause;
-  int resume;
+  int reciever_pause;
+  int control_pause;
 } BufferState;
 
 static BufferState buffer = {
     .buffer = NULL,
-    .pause = 0,
-    .resume = 1,
+    .reciever_pause = 0,
+    .control_pause = 0,
 };
 
+typedef struct {
+  sds name;
+  int w;
+  int h;
+} WindowInfo;
+
+static WindowInfo window_info = {
+    .name = "",
+    .w = 0,
+    .h = 0,
+};
+
+
 void frame_resize(GLFWwindow *window, int w, int h) {
-  printf("resizin' %d %d", w, h);
   glViewport(0, 0, w, h);
   RESIZE_ELEMENT.w = w;
   RESIZE_ELEMENT.h = h;
+
+  if (buffer.buffer != NULL) { free(buffer.buffer); }
+  buffer.buffer = init_buffer(RESIZE_ELEMENT.w, RESIZE_ELEMENT.h);
 }
 
-int init_os_window(sds a, int init_w, int init_h) {
+void set_window_info(sds name, int w, int h) {
+  window_info.name = name;
+  window_info.w = w; window_info.h = h;
+}
 
-  buffer.buffer = init_buffer(10, 10);
+void* init_os_window(void* arg) {
+
+  int init_w = window_info.w;
+  int init_h = window_info.h;
+
+  pthread_mutex_lock(&buffer_lock);
+  buffer.buffer = init_buffer(init_w, init_h);
+  pthread_mutex_unlock(&buffer_lock);
+
+
 
   glfwSetErrorCallback(error_callback);
 
@@ -51,11 +85,15 @@ int init_os_window(sds a, int init_w, int init_h) {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  GLFWwindow *window = glfwCreateWindow(640, 480, a, NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(init_w, init_h, window_info.name, NULL, NULL);
   if (!window) {
     glfwTerminate();
     exit(EXIT_FAILURE);
   }
+
+
+  // now the window + buffer are ready
+  buffer_ready = 1;
 
   glfwSetKeyCallback(window, key_callback);
   glfwMakeContextCurrent(window);
@@ -69,8 +107,13 @@ int init_os_window(sds a, int init_w, int init_h) {
 
   while (!glfwWindowShouldClose(window)) {
 
-    if (!buffer.pause) {
-      buffer.buffer = init_buffer(RESIZE_ELEMENT.w, RESIZE_ELEMENT.h);
+    while (buffer.control_pause) {
+      buffer.reciever_pause = 1;
+      glfwPollEvents();
+    }
+
+    if (!buffer.reciever_pause) {
+
 
       test_fill((Pixel){0.5f, 0.9f, 1.0f, 1.0f}, buffer.buffer,
                 RESIZE_ELEMENT.w, RESIZE_ELEMENT.h);
@@ -79,14 +122,14 @@ int init_os_window(sds a, int init_w, int init_h) {
 
       glfwSwapBuffers(window);
     }
-
-    while (buffer.pause && !buffer.resume) {
-      glfwPollEvents();
-    }
-
-    buffer.resume = 0;
+    buffer.reciever_pause = 0;
 
     glfwPollEvents();
+  }
+
+  if (buffer.buffer != NULL) {
+      free(buffer.buffer);
+      buffer.buffer = NULL; // Optional, but good practice
   }
 
   glfwDestroyWindow(window);
@@ -94,9 +137,36 @@ int init_os_window(sds a, int init_w, int init_h) {
   return 0;
 }
 
+// renderer thread is the one that uses side thread
+int start_window_thread(sds s, int h, int w) {
+  printf("something");
+  set_window_info(s, h, w);
+  pthread_t window_thread;
+  pthread_create(&window_thread, NULL, init_os_window, NULL);
+  return 0;
+}
+
+// main func is only for testing
 int main(void) {
 
-  init_os_window("Le Window", 500, 500);
+  printf("something");
+  start_window_thread("Le Window", 500, 500);
+
+  while (1) {
+    if (buffer_ready) {
+      break;
+    }
+  }
+
+  int i = 300;
+  while (i>0) {
+    buffer.control_pause = 1;
+    draw_square((Pixel){0.9f, 0.2f, 0.1f, 1.0f}, buffer.buffer, RESIZE_ELEMENT.w, RESIZE_ELEMENT.h, 300-i);
+    i--;
+    buffer.control_pause = 0;
+  }
 
   return 0;
 }
+
+

@@ -5,10 +5,15 @@
 #include <unistd.h>
 // #include "linmath.h"
 
+#include <pthread.h>
 #include "./display.c"
 #include <math.h>
 #include <stddef.h>
 #include <stdlib.h>
+
+
+static pthread_mutex_t buffer_lock = PTHREAD_MUTEX_INITIALIZER;
+
 
 Pixel *init_buffer(int width, int height) {
 
@@ -64,13 +69,16 @@ void test_fill(Pixel rgba, Pixel *buffer, int w, int h) {
   }
 }
 
-void draw_square(Pixel rgba, Pixel *buffer, int w, int h) {
+void draw_square(Pixel rgba, Pixel *buffer, int w, int h, int offset) {
+  pthread_mutex_lock(&buffer_lock);
   for (int i = 0; i < w * h; i++) {
     int current_h = floor(i / w);
     int current_w = i % w;
-    if (current_h > 200 && current_w > 200 && 300 > current_w &&
-        300 > current_h) {
+    if (current_w + 2 > w) { break; }
+    if (current_h > 200+offset && current_w > 200+offset && 300+offset > current_w &&
+        300+offset > current_h) {
       buffer[i] = rgba;
     }
   }
+  pthread_mutex_unlock(&buffer_lock);
 }
