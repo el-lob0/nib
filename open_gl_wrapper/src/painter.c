@@ -10,12 +10,7 @@
 #include <unistd.h>
 
 
-
-
-
-
 volatile int buffer_ready = 0;
-
 
 typedef struct {
   Pixel* buffer;
@@ -23,13 +18,12 @@ typedef struct {
   int h;
 } Display;
 
+
 static Display buffer = {
     .buffer = NULL,
     .w = 1000,
     .h = 1000,
 };
-
-
 
 
 typedef struct {
