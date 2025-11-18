@@ -1,1 +1,0 @@
-/usr/bin/cc  -fsanitize=address -g -O1  -fsanitize=address -Wl,--dependency-file=CMakeFiles/painter.dir/link.d CMakeFiles/painter.dir/painter.c.o CMakeFiles/painter.dir/glad.c.o -o painter  -lglfw -ldl -lm

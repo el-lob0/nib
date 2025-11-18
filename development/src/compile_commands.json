@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/geronimo/dev/nib/development/src",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu11 -o CMakeFiles/painter.dir/painter.c.o -c /home/geronimo/dev/nib/development/src/painter.c",
+  "file": "/home/geronimo/dev/nib/development/src/painter.c",
+  "output": "CMakeFiles/painter.dir/painter.c.o"
+},
+{
+  "directory": "/home/geronimo/dev/nib/development/src",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu11 -o CMakeFiles/painter.dir/glad.c.o -c /home/geronimo/dev/nib/development/src/glad.c",
+  "file": "/home/geronimo/dev/nib/development/src/glad.c",
+  "output": "CMakeFiles/painter.dir/glad.c.o"
+}
+]

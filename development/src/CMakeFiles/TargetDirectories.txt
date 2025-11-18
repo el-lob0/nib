@@ -1,0 +1,3 @@
+/home/geronimo/dev/nib/development/src/CMakeFiles/painter.dir
+/home/geronimo/dev/nib/development/src/CMakeFiles/edit_cache.dir
+/home/geronimo/dev/nib/development/src/CMakeFiles/rebuild_cache.dir
