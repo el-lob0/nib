@@ -140,11 +140,18 @@ int main(void) {
 
       int sq_h;
       int sq_w;
-      square = add_padding(square, 100, 100, 40, 40, 40, 40, (Pixel){0.5f, 0.9f, 1.0f, 1.0f}, &sq_w, &sq_h);
+      square = add_padding(square, 100, 100, 140, 140, 140, 140, (Pixel){0.5f, 0.9f, 1.0f, 1.0f}, &sq_w, &sq_h);
 
       square = rotate(square, offset, sq_w, sq_h);
 
-      merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h, 200, 200);
+      square = resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
+
+
+      // centering logic ?
+      // EDIT: centering logic !!!
+      int adjusted_x0 = 200 - (sq_w - 100)/2;
+      int adjusted_y0 = 200 - (sq_h - 100)/2;
+      merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h, adjusted_x0, adjusted_y0);
 
       offset++;
     }
