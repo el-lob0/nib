@@ -38,18 +38,6 @@ void fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
 
 /// These functions are helpers for applying transformations to the buffers
 
-Pixel *radius(Pixel *buffer, int radius, int corners) {
-  return buffer;
-  // check which corners need radius
-  // remove/make transparent the necessary pixels, and return updated buffer
-}
-
-Pixel *scale(Pixel *buffer,
-           int width /* aspect ratio is locked, so only one axis needed */) {
-  return buffer;
-  // scale the buffer up or down based on the new width
-}
-
 
 Pixel *rotate(Pixel *buffer, int degree, int w, int h) {
     Pixel *out = malloc(w * h * sizeof(Pixel));
@@ -155,6 +143,59 @@ Pixel *scale_buffer_center(Pixel *buffer, int w, int h,
 }
 
 
+void apply_radius(Pixel *buffer, int w, int h, int radius) {
+    if (!buffer || radius <= 0) return;
+
+    // Top-left corner
+    int cx = radius - 1, cy = radius - 1;
+    for (int y = 0; y < radius; y++) {
+        for (int x = 0; x < radius; x++) {
+            if ((x - cx)*(x - cx) + (y - cy)*(y - cy) >= radius*radius) {
+                buffer[y*w + x].a = 0.0f;
+            }
+        }
+    }
+
+    // Top-right corner
+    cx = w - radius; cy = radius - 1;
+    for (int y = 0; y < radius; y++) {
+        for (int x = w - radius; x < w; x++) {
+            if ((x - cx)*(x - cx) + (y - cy)*(y - cy) >= radius*radius) {
+                buffer[y*w + x].a = 0.0f;
+            }
+        }
+    }
+
+    // Bottom-left corner
+    cx = radius - 1; cy = h - radius;
+    for (int y = h - radius; y < h; y++) {
+        for (int x = 0; x < radius; x++) {
+            if ((x - cx)*(x - cx) + (y - cy)*(y - cy) >= radius*radius) {
+                buffer[y*w + x].a = 0.0f;
+            }
+        }
+    }
+
+    // Bottom-right corner
+    cx = w - radius; cy = h - radius;
+    for (int y = h - radius; y < h; y++) {
+        for (int x = w - radius; x < w; x++) {
+            if ((x - cx)*(x - cx) + (y - cy)*(y - cy) >= radius*radius) {
+                buffer[y*w + x].a = 0.0f;
+            }
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
 Pixel *resize(Pixel *buffer, int new_w, int w, int h,
               int *out_w, int *out_h)
 {
@@ -168,7 +209,8 @@ Pixel *resize(Pixel *buffer, int new_w, int w, int h,
 void merge_buffers(
     Pixel *bg, int bw, int bh,
     Pixel *fg, int fw, int fh,
-    int x0, int y0) {
+    int x0, int y0) 
+{
     for (int fy = 0; fy < fh; fy++) {
         int by = fy + y0;
         if (by < 0 || by >= bh) continue;
@@ -177,16 +219,20 @@ void merge_buffers(
             int bx = fx + x0;
             if (bx < 0 || bx >= bw) continue;
 
-            Pixel src = fg[fy * fw + fx];
-            Pixel dst = bg[by * bw + bx];
+            Pixel source = fg[fy * fw + fx];
+            Pixel destination = bg[by * bw + bx];
 
-            float a = src.a;
+            if (source.a == 0.0f) {
+                // transparent, leave bg pixel unchanged
+                continue;
+            }
 
+            float a = source.a;
             bg[by * bw + bx] = (Pixel){
-                .r = src.r * a + dst.r * (1 - a),
-                .g = src.g * a + dst.g * (1 - a),
-                .b = src.b * a + dst.b * (1 - a),
-                .a = a + dst.a * (1 - a)
+                .r = source.r * a + destination.r * (1 - a),
+                .g = source.g * a + destination.g * (1 - a),
+                .b = source.b * a + destination.b * (1 - a),
+                .a = a + destination.a * (1 - a)
             };
         }
     }

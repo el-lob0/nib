@@ -130,30 +130,39 @@ int main(void) {
   int offset = 0;
   while (window_is_open(window)) {
 
-    // part of the resize placeholder fix
     fill_buffer((Pixel){0.5f, 0.9f, 1.0f, 1.0f}, buffer.buffer,
-              buffer.w, buffer.h);
+                buffer.w, buffer.h);
 
     if (offset >= 0 && offset < 361) {
 
-      Pixel* square = rectangle((Pixel){0.9f, 0.2f, 0.1f, 1.0f}, 100, 100);
+        // Step 1: create square
+        Pixel* square = rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
 
-      int sq_h;
-      int sq_w;
-      square = add_padding(square, 100, 100, 140, 140, 140, 140, (Pixel){0.5f, 0.9f, 1.0f, 1.0f}, &sq_w, &sq_h);
+        // Step 2: apply radius to the original square
+        apply_radius(square, 100, 100, 20);
 
-      square = rotate(square, offset, sq_w, sq_h);
+        // Step 3: add padding (use transparent color)
+        int sq_w, sq_h;
+        Pixel* padded = add_padding(square, 100, 100, 140, 140, 140, 140,
+                                    (Pixel){0.0f, 0.0f, 0.0f, 0.0f}, &sq_w, &sq_h);
 
-      square = resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
+        free(square);   // free original square
+        square = padded; // square now points to padded buffer
 
+        // Step 4: resize
+        Pixel* resized = resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
+        free(square);   // free padded buffer
+        square = resized;
 
-      // centering logic ?
-      // EDIT: centering logic !!!
-      int adjusted_x0 = 200 - (sq_w - 100)/2;
-      int adjusted_y0 = 200 - (sq_h - 100)/2;
-      merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h, adjusted_x0, adjusted_y0);
+        // Step 5: merge with main buffer
+        int adjusted_x0 = 200 - (sq_w - 100)/2;
+        int adjusted_y0 = 200 - (sq_h - 100)/2;
+        merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h,
+                      adjusted_x0, adjusted_y0);
 
-      offset++;
+        free(square);   // finally free resized buffer
+
+        offset++;
     }
 
 
