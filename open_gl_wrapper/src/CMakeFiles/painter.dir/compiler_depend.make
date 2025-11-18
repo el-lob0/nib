@@ -20,7 +20,9 @@ CMakeFiles/painter.dir/glad.c.o: glad.c \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -77,12 +79,14 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   sds/sds.h \
   sds/sdsalloc.h \
   display.c \
+  buffer.c \
   /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/confname.h \
+  /usr/include/bits/cpu-set.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
   /usr/include/bits/environments.h \
@@ -108,15 +112,20 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/pthread_stack_min.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/sched.h \
   /usr/include/bits/select.h \
+  /usr/include/bits/setjmp.h \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
   /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/time.h \
   /usr/include/bits/time64.h \
   /usr/include/bits/timesize.h \
   /usr/include/bits/types.h \
@@ -133,8 +142,12 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/types/locale_t.h \
   /usr/include/bits/types/sigset_t.h \
   /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/bits/types/struct_itimerspec.h \
+  /usr/include/bits/types/struct_sched_param.h \
   /usr/include/bits/types/struct_timespec.h \
   /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/struct_tm.h \
   /usr/include/bits/types/time_t.h \
   /usr/include/bits/types/timer_t.h \
   /usr/include/bits/typesizes.h \
@@ -154,6 +167,8 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/linmath.h \
   /usr/include/linux/limits.h \
   /usr/include/math.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
@@ -163,6 +178,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/types.h \
+  /usr/include/time.h \
   /usr/include/unistd.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
@@ -170,9 +186,12 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
-painter: /usr/lib/Scrt1.o \
+painter: /usr/lib/libstdc++.so.6 \
+  /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
+  /usr/lib/libasan.so \
+  /usr/lib/libasan_preinit.o \
   /usr/lib/libc.so \
   /usr/lib/libdl.a \
   /usr/lib/libgcc_s.so \
@@ -191,244 +210,278 @@ painter: /usr/lib/Scrt1.o \
   CMakeFiles/painter.dir/painter.c.o
 
 
+CMakeFiles/painter.dir/glad.c.o:
+
 /usr/lib/libmvec.so.1:
 
+/usr/lib/libm.so.6:
+
+/usr/lib/libc_nonshared.a:
+
 /usr/lib/libc.so.6:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
 /usr/lib/libm.so:
 
-/usr/lib/libgcc_s.so.1:
+/usr/include/math.h:
 
-/usr/lib/libgcc_s.so:
+/usr/include/dlfcn.h:
 
-/usr/lib/crtn.o:
+/usr/include/endian.h:
 
-/usr/lib/libglfw.so:
+/usr/include/bits/types/cookie_io_functions_t.h:
 
-/usr/lib/crti.o:
+/usr/include/bits/stdint-uintn.h:
 
-/usr/include/unistd.h:
+/usr/include/bits/sched.h:
 
-/usr/include/ctype.h:
+/usr/include/stdio.h:
+
+/usr/include/bits/types/time_t.h:
+
+/usr/include/bits/types/struct_timespec.h:
+
+/usr/include/bits/types/struct_FILE.h:
+
+/usr/include/linmath.h:
+
+/usr/include/bits/types/locale_t.h:
+
+/usr/include/bits/uintn-identity.h:
+
+/usr/include/bits/cpu-set.h:
+
+/usr/include/bits/types/clockid_t.h:
+
+/usr/include/bits/local_lim.h:
+
+/usr/include/bits/types/__locale_t.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
+
+/usr/include/bits/math-vector.h:
+
+/usr/include/bits/types/__FILE.h:
+
+/usr/include/bits/floatn.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+display.c:
+
+/usr/include/bits/long-double.h:
+
+/usr/include/bits/floatn-common.h:
+
+sds/sds.h:
+
+/usr/include/bits/types/struct_sched_param.h:
+
+/usr/include/bits/types/__sigset_t.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/libc-header-start.h:
+
+/usr/include/bits/dlfcn.h:
+
+/home/geronimo/dev/nib/open_gl_wrapper/include/glad/glad.h:
+
+/usr/include/limits.h:
+
+/home/geronimo/dev/nib/open_gl_wrapper/include/KHR/khrplatform.h:
+
+/usr/include/bits/types/struct_timeval.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
+
+/usr/lib/libasan.so:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/bits/pthreadtypes-arch.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/features-time64.h:
+
+/usr/include/bits/types/__fpos64_t.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/struct_mutex.h:
+
+/usr/include/bits/stdint-intn.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdint-least.h:
+
+CMakeFiles/painter.dir/painter.c.o:
+
+/usr/include/bits/endianness.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/lib/libdl.a:
+
+glad.c:
+
+/usr/include/bits/types/struct_tm.h:
+
+/usr/include/bits/thread-shared-types.h:
+
+/usr/include/bits/types/sigset_t.h:
+
+/usr/include/bits/stdlib-bsearch.h:
+
+/usr/include/time.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/getopt_core.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/bits/time64.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
+
+/usr/include/string.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/stdint.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/strings.h:
+
+buffer.c:
+
+/usr/include/GLFW/glfw3.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/bits/struct_rwlock.h:
+
+/usr/include/bits/types/struct_itimerspec.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
 /usr/include/bits/unistd_ext.h:
 
-/usr/include/bits/pthread_stack_min.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
 
-/usr/lib/Scrt1.o:
+/usr/include/pthread.h:
 
-/usr/include/bits/pthread_stack_min-dynamic.h:
+painter.c:
 
-/usr/include/bits/posix_opt.h:
+sds/sds.c:
 
-/usr/include/bits/posix2_lim.h:
+/usr/include/bits/waitstatus.h:
 
-/usr/include/bits/mathcalls.h:
-
-/usr/include/bits/mathcalls-macros.h:
-
-/usr/include/bits/libm-simd-decl-stubs.h:
-
-/usr/include/bits/getopt_posix.h:
-
-/usr/include/bits/fp-logb.h:
-
-/usr/lib/libc.so:
-
-/usr/include/bits/posix1_lim.h:
-
-/usr/include/bits/fp-fast.h:
-
-/usr/include/bits/flt-eval-method.h:
-
-/usr/include/assert.h:
+/usr/include/bits/timesize.h:
 
 sds/sdsalloc.h:
 
 /usr/lib/ld-linux-x86-64.so.2:
 
-sds/sds.c:
-
-/usr/include/bits/confname.h:
-
-painter.c:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
-
-/usr/include/sys/types.h:
-
-/usr/lib/libm.so.6:
-
-/usr/include/bits/environments.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/sys/cdefs.h:
-
-/usr/include/strings.h:
-
-/usr/include/stdlib.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
-
-/usr/include/limits.h:
-
-/usr/include/GLFW/glfw3.h:
+/usr/include/assert.h:
 
 /usr/include/bits/types/FILE.h:
 
-/usr/lib/libc_nonshared.a:
+/usr/include/bits/flt-eval-method.h:
 
-/usr/include/bits/getopt_core.h:
+/usr/include/bits/fp-fast.h:
 
-/usr/include/bits/types.h:
+/usr/include/bits/posix1_lim.h:
 
-/usr/include/string.h:
+/usr/lib/libc.so:
 
-/usr/include/bits/time64.h:
+/usr/include/bits/fp-logb.h:
 
-/usr/include/bits/byteswap.h:
+/usr/include/bits/libm-simd-decl-stubs.h:
 
-/usr/include/bits/thread-shared-types.h:
-
-/usr/include/bits/wchar.h:
-
-/usr/include/bits/stdint-least.h:
-
-/usr/include/alloca.h:
-
-/usr/include/bits/stdint-intn.h:
-
-/usr/include/bits/struct_mutex.h:
-
-/usr/include/gnu/stubs-64.h:
-
-/usr/include/bits/select.h:
-
-/usr/include/bits/types/__fpos64_t.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/bits/pthreadtypes-arch.h:
-
-glad.c:
-
-/usr/include/linux/limits.h:
-
-/usr/include/bits/types/clock_t.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
-
-/home/geronimo/dev/nib/open_gl_wrapper/include/KHR/khrplatform.h:
-
-/home/geronimo/dev/nib/open_gl_wrapper/include/glad/glad.h:
-
-/usr/include/bits/dlfcn.h:
-
-/usr/include/bits/libc-header-start.h:
-
-/usr/include/bits/timesize.h:
-
-/usr/include/bits/endian.h:
-
-/usr/include/bits/types/__sigset_t.h:
-
-/usr/include/bits/waitflags.h:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/bits/stdlib-float.h:
-
-/usr/include/bits/types/sigset_t.h:
-
-sds/sds.h:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/bits/long-double.h:
-
-display.c:
-
-/usr/include/bits/pthreadtypes.h:
-
-/usr/include/bits/floatn.h:
-
-/usr/include/bits/math-vector.h:
+/usr/include/bits/mathcalls-macros.h:
 
 /usr/include/bits/types/__fpos_t.h:
 
-CMakeFiles/painter.dir/painter.c.o:
+/usr/include/bits/types/clock_t.h:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
+/usr/include/bits/mathcalls.h:
 
-/usr/include/bits/wordsize.h:
-
-/usr/include/bits/types/__locale_t.h:
-
-/usr/include/bits/local_lim.h:
-
-/usr/include/bits/types/__mbstate_t.h:
+/usr/include/bits/posix2_lim.h:
 
 /usr/include/bits/atomic_wide_counter.h:
 
-/usr/include/bits/types/clockid_t.h:
+/usr/include/bits/posix_opt.h:
 
-/usr/include/bits/uintn-identity.h:
-
-/usr/include/bits/typesizes.h:
-
-/usr/lib/libdl.a:
-
-/usr/include/bits/types/locale_t.h:
-
-/usr/include/linmath.h:
-
-/usr/include/bits/types/struct_FILE.h:
-
-/usr/include/bits/types/struct_timespec.h:
-
-/usr/include/bits/stdio_lim.h:
-
-/usr/include/bits/types/struct_timeval.h:
-
-/usr/include/bits/mathcalls-helper-functions.h:
-
-/usr/include/bits/struct_rwlock.h:
-
-/usr/include/bits/types/time_t.h:
-
-/usr/include/bits/stdint-uintn.h:
-
-/usr/include/bits/types/cookie_io_functions_t.h:
-
-/usr/include/endian.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
-
-/usr/include/bits/waitstatus.h:
-
-/usr/include/dlfcn.h:
-
-/usr/include/features.h:
-
-/usr/include/math.h:
-
-/usr/include/gnu/stubs.h:
-
-/usr/include/stdint.h:
-
-CMakeFiles/painter.dir/glad.c.o:
+/usr/include/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/bits/types/timer_t.h:
 
-/usr/include/stdio.h:
+/usr/lib/Scrt1.o:
+
+/usr/include/bits/pthread_stack_min.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/types/__mbstate_t.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/ctype.h:
+
+/usr/include/unistd.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/include/bits/getopt_posix.h:
+
+/usr/lib/libstdc++.so.6:
+
+/usr/include/bits/typesizes.h:
+
+/usr/lib/crti.o:
+
+/usr/lib/libglfw.so:
+
+/usr/lib/crtn.o:
+
+/usr/lib/libasan_preinit.o:
+
+/usr/lib/libgcc_s.so:
+
+/usr/include/bits/confname.h:
+
+/usr/lib/libgcc_s.so.1:
