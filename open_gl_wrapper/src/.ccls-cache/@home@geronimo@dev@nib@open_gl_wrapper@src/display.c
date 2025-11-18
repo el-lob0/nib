@@ -169,5 +169,6 @@ int display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h) {
   glBindVertexArray(vao);
   glDrawArrays(GL_TRIANGLES, 0, 6);
 
+  glfwSwapBuffers(window);
   return 0;
 }

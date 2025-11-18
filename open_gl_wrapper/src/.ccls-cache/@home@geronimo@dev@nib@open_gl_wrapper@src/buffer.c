@@ -12,7 +12,6 @@
 #include <stdlib.h>
 
 
-static pthread_mutex_t buffer_lock = PTHREAD_MUTEX_INITIALIZER;
 
 
 Pixel *init_buffer(int width, int height) {
@@ -70,15 +69,21 @@ void test_fill(Pixel rgba, Pixel *buffer, int w, int h) {
 }
 
 void draw_square(Pixel rgba, Pixel *buffer, int w, int h, int offset) {
-  pthread_mutex_lock(&buffer_lock);
-  for (int i = 0; i < w * h; i++) {
-    int current_h = floor(i / w);
-    int current_w = i % w;
-    if (current_w + 2 > w) { break; }
-    if (current_h > 200+offset && current_w > 200+offset && 300+offset > current_w &&
-        300+offset > current_h) {
-      buffer[i] = rgba;
+    int size = 100; // square size
+
+    int start_x = offset;
+    int start_y = offset;
+    int end_x   = start_x + size;
+    int end_y   = start_y + size;
+
+    if (start_x >= w || start_y >= h) return;
+    if (end_x > w) end_x = w;
+    if (end_y > h) end_y = h;
+
+    for (int y = start_y; y < end_y; y++) {
+        int row = y * w;
+        for (int x = start_x; x < end_x; x++) {
+            buffer[row + x] = rgba;
+        }
     }
-  }
-  pthread_mutex_unlock(&buffer_lock);
 }
