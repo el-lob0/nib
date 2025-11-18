@@ -134,10 +134,18 @@ int main(void) {
     fill_buffer((Pixel){0.5f, 0.9f, 1.0f, 1.0f}, buffer.buffer,
               buffer.w, buffer.h);
 
-    if (offset >= 0 && offset < 1001) {
-      draw_square((Pixel){0.9f, 0.2f, 0.1f, 1.0f}, buffer.buffer, buffer.w, buffer.h, offset);
+    if (offset >= 0 && offset < 361) {
 
-      rotate(buffer.buffer, offset, buffer.w, buffer.h);
+      Pixel* square = rectangle((Pixel){0.9f, 0.2f, 0.1f, 1.0f}, 100, 100);
+
+      int sq_h;
+      int sq_w;
+      square = add_padding(square, 100, 100, 40, 40, 40, 40, (Pixel){0.5f, 0.9f, 1.0f, 1.0f}, &sq_w, &sq_h);
+
+      square = rotate(square, offset, sq_w, sq_h);
+
+      merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h, 200, 200);
+
       offset++;
     }
 

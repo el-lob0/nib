@@ -20,9 +20,7 @@ CMakeFiles/painter.dir/glad.c.o: glad.c \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
-  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
-  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -118,9 +116,7 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/include/bits/stdint-intn.h \
   /usr/include/bits/stdint-least.h \
   /usr/include/bits/stdint-uintn.h \
-  /usr/include/bits/stdio.h \
   /usr/include/bits/stdio_lim.h \
-  /usr/include/bits/stdlib-bsearch.h \
   /usr/include/bits/stdlib-float.h \
   /usr/include/bits/struct_mutex.h \
   /usr/include/bits/struct_rwlock.h \
@@ -186,12 +182,9 @@ CMakeFiles/painter.dir/painter.c.o: painter.c \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
-painter: /usr/lib/libstdc++.so.6 \
-  /usr/lib/Scrt1.o \
+painter: /usr/lib/Scrt1.o \
   /usr/lib/crti.o \
   /usr/lib/crtn.o \
-  /usr/lib/libasan.so \
-  /usr/lib/libasan_preinit.o \
   /usr/lib/libc.so \
   /usr/lib/libdl.a \
   /usr/lib/libgcc_s.so \
@@ -220,13 +213,7 @@ CMakeFiles/painter.dir/glad.c.o:
 
 /usr/lib/libc.so.6:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
-
-/usr/lib/libm.so:
+/usr/include/stdio.h:
 
 /usr/include/math.h:
 
@@ -239,8 +226,6 @@ CMakeFiles/painter.dir/glad.c.o:
 /usr/include/bits/stdint-uintn.h:
 
 /usr/include/bits/sched.h:
-
-/usr/include/stdio.h:
 
 /usr/include/bits/types/time_t.h:
 
@@ -268,10 +253,6 @@ CMakeFiles/painter.dir/glad.c.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h:
 
-/usr/include/bits/types/__FILE.h:
-
-/usr/include/limits.h:
-
 /usr/include/bits/floatn.h:
 
 /home/geronimo/dev/nib/development/include/KHR/khrplatform.h:
@@ -285,6 +266,16 @@ display.c:
 /usr/include/bits/floatn-common.h:
 
 sds/sds.h:
+
+/usr/include/bits/types/sigset_t.h:
+
+/usr/include/bits/types/__FILE.h:
+
+CMakeFiles/painter.dir/painter.c.o:
+
+/usr/include/features.h:
+
+/usr/include/bits/endianness.h:
 
 /usr/include/bits/dlfcn.h:
 
@@ -300,7 +291,9 @@ sds/sds.h:
 
 /home/geronimo/dev/nib/development/include/glad/glad.h:
 
-/usr/lib/libasan.so:
+/usr/include/stdint.h:
+
+/usr/include/linux/limits.h:
 
 /usr/include/gnu/stubs.h:
 
@@ -320,17 +313,13 @@ sds/sds.h:
 
 /usr/include/bits/stdint-intn.h:
 
+/usr/include/limits.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
+
 /usr/include/alloca.h:
 
 /usr/include/bits/stdint-least.h:
-
-CMakeFiles/painter.dir/painter.c.o:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/features.h:
-
-/usr/include/bits/stdio.h:
 
 /usr/include/bits/wchar.h:
 
@@ -342,16 +331,6 @@ glad.c:
 
 /usr/include/bits/thread-shared-types.h:
 
-/usr/include/bits/types/sigset_t.h:
-
-/usr/include/bits/stdlib-bsearch.h:
-
-/usr/include/time.h:
-
-/usr/include/bits/types.h:
-
-/usr/include/bits/getopt_core.h:
-
 /usr/include/bits/byteswap.h:
 
 /usr/include/bits/stdlib-float.h:
@@ -362,9 +341,9 @@ glad.c:
 
 /usr/include/string.h:
 
-/usr/include/linux/limits.h:
+/usr/include/bits/types.h:
 
-/usr/include/stdint.h:
+/usr/include/bits/getopt_core.h:
 
 /usr/include/stdlib.h:
 
@@ -388,11 +367,9 @@ buffer.c:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h:
 
-/usr/include/bits/unistd_ext.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
-
 /usr/include/pthread.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
 
 painter.c:
 
@@ -419,6 +396,10 @@ sds/sdsalloc.h:
 /usr/lib/libc.so:
 
 /usr/include/bits/fp-logb.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
+
+/usr/include/bits/getopt_posix.h:
 
 /usr/include/bits/libm-simd-decl-stubs.h:
 
@@ -454,21 +435,21 @@ sds/sdsalloc.h:
 
 /usr/include/bits/time.h:
 
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h:
+
+/usr/include/bits/unistd_ext.h:
+
 /usr/include/bits/waitflags.h:
 
 /usr/include/ctype.h:
+
+/usr/include/time.h:
 
 /usr/include/unistd.h:
 
 /usr/include/bits/types/struct_timeval.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
-
-/usr/include/bits/getopt_posix.h:
-
-/usr/lib/libstdc++.so.6:
 
 /usr/include/bits/typesizes.h:
 
@@ -478,10 +459,12 @@ sds/sdsalloc.h:
 
 /usr/lib/crtn.o:
 
-/usr/lib/libasan_preinit.o:
-
 /usr/lib/libgcc_s.so:
 
 /usr/include/bits/confname.h:
 
 /usr/lib/libgcc_s.so.1:
+
+/usr/lib/libm.so:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:

@@ -21,9 +21,7 @@ CMakeFiles/painter.dir/glad.c.o
  /usr/include/bits/stdint-intn.h
  /usr/include/bits/stdint-least.h
  /usr/include/bits/stdint-uintn.h
- /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
- /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -120,9 +118,7 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/include/bits/stdint-intn.h
  /usr/include/bits/stdint-least.h
  /usr/include/bits/stdint-uintn.h
- /usr/include/bits/stdio.h
  /usr/include/bits/stdio_lim.h
- /usr/include/bits/stdlib-bsearch.h
  /usr/include/bits/stdlib-float.h
  /usr/include/bits/struct_mutex.h
  /usr/include/bits/struct_rwlock.h
@@ -189,12 +185,9 @@ CMakeFiles/painter.dir/painter.c.o
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h
 
 painter
- /usr/lib/libstdc++.so.6
  /usr/lib/Scrt1.o
  /usr/lib/crti.o
  /usr/lib/crtn.o
- /usr/lib/libasan.so
- /usr/lib/libasan_preinit.o
  /usr/lib/libc.so
  /usr/lib/libdl.a
  /usr/lib/libgcc_s.so

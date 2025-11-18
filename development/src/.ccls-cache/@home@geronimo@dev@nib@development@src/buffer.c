@@ -51,69 +51,99 @@ Pixel *scale(Pixel *buffer,
 }
 
 
-int rotate(Pixel *buffer, int degree, int w, int h) {
-  Pixel *rotated_buffer= malloc(w * h * sizeof(Pixel));
-  if (!buffer) return 1;
+Pixel *rotate(Pixel *buffer, int degree, int w, int h) {
+    Pixel *out = malloc(w * h * sizeof(Pixel));
+    if (!out || !buffer) return NULL;
 
-  float theta = degree*(float)M_PI/180.0f;
-  float cos_theta = cosf(theta);
-  float sin_theta = sinf(theta);
+    float theta = degree * (float)M_PI / 180.0f;
+    float cos_t = cosf(theta);
+    float sin_t = sinf(theta);
 
-  float cx = (w - 1)/2.0f;
-  float cy = (h - 1)/2.0f;
+    float cx = (w - 1) / 2.0f;
+    float cy = (h - 1) / 2.0f;
 
-  int new_w = w;
-  int new_h = h;
+    // clear
+    for (int i = 0; i < w*h; i++)
+        out[i] = (Pixel){0,0,0,0};
 
-  fill_buffer((Pixel){0.0f, 0.0f, 0.0f, 0.0f}, rotated_buffer, w, h);
+    for (int y_out = 0; y_out < h; y_out++) {
+        for (int x_out = 0; x_out < w; x_out++) {
 
-  for (int x_out=0; x_out<new_w*new_h; x_out++) {
-    for (int y_out=0; y_out<new_w*new_w; y_out++) {
-      float x0 = x_out - cx;
-      float y0 = y_out - cy;
+            float x0 = x_out - cx;
+            float y0 = y_out - cy;
 
-      float x_in = cos_theta*x0 + sin_theta*y0 + cx;
-      float y_in = -sin_theta*x0 + cos_theta*y0 + cy;
+            float x_in =  cos_t * x0 + sin_t * y0 + cx;
+            float y_in = -sin_t * x0 + cos_t * y0 + cy;
 
-      int xi = (int)(x_in + 0.5f);
-      int yi = (int)(y_in + 0.5f);
+            int xi = (int)roundf(x_in);
+            int yi = (int)roundf(y_in);
 
-      if (xi >= 0 && xi < w && yi >=0 && yi < h) {
-        rotated_buffer[y_out*new_w + x_out] = buffer[yi * w + xi];
-      }
+            if (xi >= 0 && xi < w && yi >= 0 && yi < h)
+                out[y_out * w + x_out] = buffer[yi * w + xi];
+        }
     }
-  }
 
-  buffer = rotated_buffer;
-  free(rotated_buffer);
-  return 0;
-  // calculate the correct translation for each pixel to achieve the demanded
-  // the degree of rotation NOTE: must locate the center first i think
+    return out;
 }
 
-void merge_buffers(Pixel *bg_buffer, Pixel *fg_buffer, int fg_w, int fg_h, int x, int y) {
-  int x_center = round(fg_w/2);
-  int y_center = round(fg_h/2);
-  int x_margin = round(x - x_center)-1;
-  int y_margin = round(y - y_center)-1;
+Pixel *add_padding(Pixel *buffer, int w, int h,
+                   int pad_left, int pad_right,
+                   int pad_top, int pad_bottom,
+                   Pixel pad_color,
+                   int *out_w, int *out_h) {
+    int nw = w + pad_left + pad_right;
+    int nh = h + pad_top + pad_bottom;
 
+    Pixel *newbuf = malloc(nw * nh * sizeof(Pixel));
+    if (!newbuf) return NULL;
 
-
-  for (int x = x_margin; x < fg_w; x++) {
-    int total = x*fg_w;
-    for (int y = y_margin; y < fg_h; y++) {
-      Pixel {fg_r, fg_g, fg_b, fg_a} = fg_buffer[total + x - x_margin];
-      Pixel {bg_r, bg_g, bg_b, bg_a} = bg_buffer[total + x];
-
+    // fill everything with the padding color
+    for (int i = 0; i < nw * nh; i++) {
+        newbuf[i] = pad_color;
     }
-  }
 
-  for (int y = start_y; y < end_y; y++) {
-    int row = y * w;
-    for (int x = start_x; x < end_x; x++) {
-      bg_buffer[row + x] = rgba;
+    // copy the original buffer into position
+    for (int y = 0; y < h; y++) {
+        int src_off = y * w;
+        int dst_off = (y + pad_top) * nw + pad_left;
+
+        for (int x = 0; x < w; x++) {
+            newbuf[dst_off + x] = buffer[src_off + x];
+        }
     }
-  }
+
+    *out_w = nw;
+    *out_h = nh;
+    return newbuf;
+}
+
+
+
+void merge_buffers(
+    Pixel *bg, int bw, int bh,
+    Pixel *fg, int fw, int fh,
+    int x0, int y0) {
+    for (int fy = 0; fy < fh; fy++) {
+        int by = fy + y0;
+        if (by < 0 || by >= bh) continue;
+
+        for (int fx = 0; fx < fw; fx++) {
+            int bx = fx + x0;
+            if (bx < 0 || bx >= bw) continue;
+
+            Pixel src = fg[fy * fw + fx];
+            Pixel dst = bg[by * bw + bx];
+
+            float a = src.a;
+
+            bg[by * bw + bx] = (Pixel){
+                .r = src.r * a + dst.r * (1 - a),
+                .g = src.g * a + dst.g * (1 - a),
+                .b = src.b * a + dst.b * (1 - a),
+                .a = a + dst.a * (1 - a)
+            };
+        }
+    }
 }
 
 
@@ -125,11 +155,18 @@ Pixel *apply_antialiasing(Pixel *buffer, int feather) {
   return buffer;
 }
 
-// Pixel *apply_antialiasing(Pixel *buffer, int feather) {
-//   return init_buffer(0, 0);
-// }
+Pixel *rectangle(Pixel color, int w, int h) {
+    Pixel *buf = init_buffer(w, h);
+    if (!buf) return NULL;
 
-Pixel *build_rectangle(int w, int h) { return init_buffer(w, h); }
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            buf[y * w + x] = color;
+        }
+    }
+
+    return buf;
+}
 
 void calculate_position() {}
 
