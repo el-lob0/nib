@@ -135,13 +135,14 @@ int main(void) {
 
     if (offset >= 0 && offset < 361) {
 
-        // Step 1: create square
         Pixel* square = rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
 
-        // Step 2: apply radius to the original square
         apply_radius(square, 100, 100, 20);
 
-        // Step 3: add padding (use transparent color)
+        Pixel* anti_aliased = apply_antialiasing(square, 100, 100, 1);
+        free(square);   // free padded buffer
+        square = anti_aliased;
+
         int sq_w, sq_h;
         Pixel* padded = add_padding(square, 100, 100, 140, 140, 140, 140,
                                     (Pixel){0.0f, 0.0f, 0.0f, 0.0f}, &sq_w, &sq_h);
@@ -149,7 +150,6 @@ int main(void) {
         free(square);   // free original square
         square = padded; // square now points to padded buffer
 
-        // Step 4: resize
         Pixel* resized = resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
         free(square);   // free padded buffer
         square = resized;

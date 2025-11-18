@@ -142,6 +142,55 @@ Pixel *scale_buffer_center(Pixel *buffer, int w, int h,
     return out;
 }
 
+Pixel *apply_antialiasing(Pixel *buffer, int w, int h, int feather) {
+    if (!buffer || feather <= 0) return buffer;
+
+    Pixel *out = malloc(w * h * sizeof(Pixel));
+    if (!out) return NULL;
+
+    // copy original buffer first
+    for (int i = 0; i < w*h; i++) out[i] = buffer[i];
+
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            float sum_a = 0.0f;
+            float sum_r = 0.0f;
+            float sum_g = 0.0f;
+            float sum_b = 0.0f;
+            int count = 0;
+
+            // box blur kernel
+            for (int ky = -feather; ky <= feather; ky++) {
+                int ny = y + ky;
+                if (ny < 0 || ny >= h) continue;
+                for (int kx = -feather; kx <= feather; kx++) {
+                    int nx = x + kx;
+                    if (nx < 0 || nx >= w) continue;
+
+                    Pixel p = buffer[ny * w + nx];
+                    sum_r += p.r * p.a;
+                    sum_g += p.g * p.a;
+                    sum_b += p.b * p.a;
+                    sum_a += p.a;
+                    count++;
+                }
+            }
+
+            if (sum_a > 0.0f) {
+                out[y * w + x] = (Pixel){
+                    sum_r / sum_a,
+                    sum_g / sum_a,
+                    sum_b / sum_a,
+                    sum_a / count
+                };
+            } else {
+                out[y * w + x] = (Pixel){0,0,0,0};
+            }
+        }
+    }
+
+    return out;
+}
 
 void apply_radius(Pixel *buffer, int w, int h, int radius) {
     if (!buffer || radius <= 0) return;
@@ -190,7 +239,18 @@ void apply_radius(Pixel *buffer, int w, int h, int radius) {
 
 
 
+Pixel *rectangle(Pixel color, int w, int h) {
+    Pixel *buf = init_buffer(w, h);
+    if (!buf) return NULL;
 
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            buf[y * w + x] = color;
+        }
+    }
+
+    return buf;
+}
 
 
 
@@ -241,23 +301,6 @@ void merge_buffers(
 
 Pixel *bitmap_to_buffer(int bitmap /*placeholder param*/ ) {
   return init_buffer(0, 0);
-}
-
-Pixel *apply_antialiasing(Pixel *buffer, int feather) {
-  return buffer;
-}
-
-Pixel *rectangle(Pixel color, int w, int h) {
-    Pixel *buf = init_buffer(w, h);
-    if (!buf) return NULL;
-
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            buf[y * w + x] = color;
-        }
-    }
-
-    return buf;
 }
 
 void calculate_position() {}
