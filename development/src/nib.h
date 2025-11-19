@@ -88,6 +88,14 @@ int nib_display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h);
 
 /* ------------ Misc ------------ */
 
-Pixel* nib_bitmap_to_buffer(int placeholder);
-void   nib_calculate_position(void);
+
+typedef struct {
+    int width;
+    int rows;
+    int pitch;
+    int pixel_mode;   // user fills this from FT_PIXEL_MODE_*
+    unsigned char *buffer;
+} nib_raw_bitmap;
+
+Pixel *nib_bitmap_to_buffer(const nib_raw_bitmap *bmp, Pixel color);
 

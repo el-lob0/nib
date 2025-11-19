@@ -1,6 +1,8 @@
 # Nib  
 Nib is a raster software rendering library that uses glfw and openGL.  
 (Thus i can say its gpu-accelerated)  
+  
+Feel free to make an issue or pr.
 
 
 ### > development:
@@ -17,13 +19,15 @@ Cmake probably
 
 # Installation
   
-I honestly dont know... C's dependency hell is the worst of them all.  
-You can just clone the repo and write your program in target/src/  
+Copy `libnib.a` and `nib.h` in your includes dir and then do your compiler shenanigans.  
 
 --- 
 
+# Usage  
+  
+See `target/example.c` for a working example.
+
 # Documentation
-Its all in nib.h but:
 
 ```c
 #pragma once
@@ -114,17 +118,12 @@ nib_read_window_size(window, frame_resize);
 //----------------------Event Handling-----------------------------------------
 
 /// These are straight-forward
-#define nib_read_window_size(window, func) glfwSetFramebufferSizeCallback(window, func)
-#define nib_wait_events() glfwWaitEvents()
-#define nib_poll_events() glfwPollEvents()
-#define nib_set_key_callback(window, key_callback) glfwSetKeyCallback(window, key_callback);
-#define nib_set_mouse_click_callback(window, key_callback) glfwSetMouseButtonCallback(window, mouse_callback);
-#define nib_set_cursor_position_callback(window, key_callback) glfwSetCursorPosCallback(window, cursor_callback);
+ nib_read_window_size(window, func) 
+ nib_wait_events() 
+ nib_poll_events() 
+ nib_set_key_callback(window, key_callback) 
+ nib_set_mouse_click_callback(window, key_callback) 
+ nib_set_cursor_position_callback(window, key_callback) 
 
 ```
 
-# TODO:  
-
-[ ]- Bitmap to buffer (for font rendering)  
-[X]- Input event forwarding  
-[ ]- idk  

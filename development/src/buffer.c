@@ -299,8 +299,48 @@ void nib_merge_buffers(
 }
 
 
-Pixel *nib_bitmap_to_buffer(int bitmap /*placeholder param*/ ) {
-  return nib_init_buffer(0, 0);
+
+Pixel *nib_bitmap_to_buffer(const nib_raw_bitmap *bmp, Pixel color)
+{
+    if (!bmp || !bmp->buffer || bmp->width <= 0 || bmp->rows <= 0)
+        return NULL;
+
+    // allocate Pixel buffer
+    int w = bmp->width;
+    int h = bmp->rows;
+
+    Pixel *out = malloc(sizeof(Pixel) * w * h);
+    if (!out) return NULL;
+
+    // Only handle FT_PIXEL_MODE_GRAY (8-bit alpha coverage)
+    if (bmp->pixel_mode != 2) {
+        // unsupported
+        free(out);
+        return NULL;
+    }
+
+    // convert
+    for (int y = 0; y < h; y++) {
+
+        const unsigned char *row = bmp->buffer + y * bmp->pitch;
+
+        for (int x = 0; x < w; x++) {
+
+            unsigned char cov = row[x];          // 0–255
+            float a = cov / 255.0f;              // convert to 0–1
+
+            out[y * w + x].r = color.r;
+            out[y * w + x].g = color.g;
+            out[y * w + x].b = color.b;
+            out[y * w + x].a = a;
+        }
+    }
+
+    return out;
 }
+
+
+
+
 
 
