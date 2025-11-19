@@ -25,6 +25,24 @@ static WindowInfo nib_window_info = {
 };
 
 
+int start_anim = 0;
+
+static void key_press_callback(GLFWwindow *window, int key, int scancode, int action,
+                         int mods) {
+  if (key == GLFW_KEY_A && action == GLFW_PRESS)
+    start_anim = 1;
+}
+
+static void mouse_callback(GLFWwindow *window, int button, int action,
+                         int mods) {
+  if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS)
+    start_anim = 1;
+}
+
+
+
+
+
 
 void frame_resize(GLFWwindow *window, int w, int h) {
   if (nib_buffer.buffer) free(nib_buffer.buffer);
@@ -43,14 +61,22 @@ int main(void) {
   nib_buffer.buffer = nib_init_buffer(500, 500);
   nib_wait_for_buffer();
 
-  glfwSetFramebufferSizeCallback(window, frame_resize);
+  nib_read_window_size(window, frame_resize);
+
+  nib_set_key_callback(window, key_press_callback);
+  nib_set_mouse_click_callback(window, mouse_callback);
+
+
   int offset = 0;
   while (nib_window_is_open(window)) {
+
+
 
     nib_fill_buffer((Pixel){0.5f, 0.9f, 1.0f, 1.0f}, nib_buffer.buffer,
                 nib_buffer.w, nib_buffer.h);
 
-    if (offset >= 0 && offset < 361) {
+
+    if (offset > 0 && offset <= 100 || start_anim) {
 
         Pixel* square = nib_rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
 
@@ -67,7 +93,7 @@ int main(void) {
         free(square);   // free original square
         square = padded; // square now points to padded buffer
 
-        Pixel* resized = nib_resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
+        Pixel* resized = nib_resize(square, 100+offset*2, sq_w, sq_h, &sq_w, &sq_h);
         free(square);   // free padded buffer
         square = resized;
 
@@ -79,14 +105,16 @@ int main(void) {
 
         free(square);   // finally free resized buffer
 
+        start_anim = 0;
         offset++;
     }
+    if (offset >=100) { offset = 0; }
 
 
     nib_display_buffer(window, nib_buffer.buffer, nib_buffer.w, nib_buffer.h);
 
-    // when i know more abt this ill make an alias for it 
-    glfwPollEvents();
+    nib_wait_events();
+    // glfwPollEvents();
   }
 
   if (nib_buffer.buffer != NULL) {

@@ -2,6 +2,16 @@
 #include <stdint.h>
 
 
+/// These are straight-forward
+#define nib_read_window_size(window, func) glfwSetFramebufferSizeCallback(window, func)
+#define nib_wait_events() glfwWaitEvents()
+#define nib_poll_events() glfwPollEvents()
+#define nib_set_key_callback(window, key_callback) glfwSetKeyCallback(window, key_callback);
+#define nib_set_mouse_click_callback(window, key_callback) glfwSetMouseButtonCallback(window, mouse_callback);
+#define nib_set_cursor_position_callback(window, key_callback) glfwSetCursorPosCallback(window, cursor_callback);
+  
+// ADD: mouse click, mouse movement
+
 typedef struct {
   float r, g, b, a;
 } Pixel;

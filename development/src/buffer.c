@@ -303,5 +303,4 @@ Pixel *nib_bitmap_to_buffer(int bitmap /*placeholder param*/ ) {
   return nib_init_buffer(0, 0);
 }
 
-void nib_calculate_position() {}
 

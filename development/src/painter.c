@@ -7,6 +7,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "./nib.h"
+
 
 
 
@@ -28,6 +30,8 @@ static WindowInfo nib_window_info = {
     .w = 500,
     .h = 500,
 };
+
+
 
 void nib_frame_resize(GLFWwindow *window, int w, int h) {
   if (nib_buffer.buffer) free(nib_buffer.buffer);
@@ -70,7 +74,6 @@ GLFWwindow* nib_init_os_window(const char *title) {
     exit(EXIT_FAILURE);
   }
 
-  glfwSetKeyCallback(window, key_callback);
   glfwMakeContextCurrent(window);
   gladLoadGL();
   glfwSwapInterval(1);
@@ -79,7 +82,7 @@ GLFWwindow* nib_init_os_window(const char *title) {
   nib_buffer.w = init_w;
   nib_buffer.h = init_h;
 
-  glfwSetFramebufferSizeCallback(window, nib_frame_resize);
+  nib_read_window_size(window, nib_frame_resize);
 
   return window;
 }

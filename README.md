@@ -107,7 +107,7 @@ int nib_display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h);
 void nib_frame_resize(GLFWwindow *window, int w, int h);
 
 // If you want frame resizing control you should call this right before the loop
-glfwSetFramebufferSizeCallback(window, frame_resize);
+nib_read_window_size(window, frame_resize);
 /// this feeds the updated dimentions to the frame_resize function, and you deal with the rest
 
 ```
