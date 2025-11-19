@@ -1,4 +1,7 @@
 # Nib  
+
+<img width="376" height="200" alt="nib" src="https://github.com/user-attachments/assets/60a0ce48-3b6f-4235-ab0a-47edf9ed4d88" />  
+
 Nib is a raster software rendering library that uses glfw and openGL.  
 (Thus i can say its gpu-accelerated)  
   
