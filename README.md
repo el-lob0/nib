@@ -110,10 +110,21 @@ void nib_frame_resize(GLFWwindow *window, int w, int h);
 nib_read_window_size(window, frame_resize);
 /// this feeds the updated dimentions to the frame_resize function, and you deal with the rest
 
+
+//----------------------Event Handling-----------------------------------------
+
+/// These are straight-forward
+#define nib_read_window_size(window, func) glfwSetFramebufferSizeCallback(window, func)
+#define nib_wait_events() glfwWaitEvents()
+#define nib_poll_events() glfwPollEvents()
+#define nib_set_key_callback(window, key_callback) glfwSetKeyCallback(window, key_callback);
+#define nib_set_mouse_click_callback(window, key_callback) glfwSetMouseButtonCallback(window, mouse_callback);
+#define nib_set_cursor_position_callback(window, key_callback) glfwSetCursorPosCallback(window, cursor_callback);
+
 ```
 
 # TODO:  
 
 [_]- Bitmap to buffer (for font rendering)
-[_]- Input event forwarding
+[X]- Input event forwarding
 [_]- idk
