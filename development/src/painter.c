@@ -10,7 +10,7 @@
 #include <unistd.h>
 
 
-volatile int buffer_ready = 0;
+volatile int nib_buffer_ready = 0;
 
 typedef struct {
   Pixel* buffer;
@@ -19,7 +19,7 @@ typedef struct {
 } Display;
 
 
-static Display buffer = {
+static Display nib_buffer = {
     .buffer = NULL,
     .w = 1000,
     .h = 1000,
@@ -32,48 +32,42 @@ typedef struct {
   int h;
 } WindowInfo;
 
-static WindowInfo window_info = {
+static WindowInfo nib_window_info = {
     .name = "",
     .w = 0,
     .h = 0,
 };
 
-// place holder until i deal with resize at the api call stage
-void frame_resize(GLFWwindow *window, int w, int h) {
-  if (buffer.buffer) free(buffer.buffer);
-  buffer.buffer = init_buffer(w, h);
-  buffer.w = w; buffer.h = h;
+void nib_frame_resize(GLFWwindow *window, int w, int h) {
+  if (nib_buffer.buffer) free(nib_buffer.buffer);
+  nib_buffer.buffer = nib_init_buffer(w, h);
+  nib_buffer.w = w; nib_buffer.h = h;
 }
 
-void set_window_info(sds name, int w, int h) {
-  window_info.name = name;
-  window_info.w = w; window_info.h = h;
-}
-
-
-void buffer_switch_signal() {
-  glfwPostEmptyEvent();
+void nib_set_window_info(sds name, int w, int h) {
+  nib_window_info.name = name;
+  nib_window_info.w = w; nib_window_info.h = h;
 }
 
 
-void wait_for_buffer() {
+void nib_wait_for_buffer() {
 
   while (1) {
-    if (buffer_ready) {
+    if (nib_buffer_ready) {
       break;
     }
   }
 }
 
 
-GLFWwindow* init_os_window() {
+GLFWwindow* nib_init_os_window() {
 
-  int init_w = window_info.w;
-  int init_h = window_info.h;
+  int init_w = nib_window_info.w;
+  int init_h = nib_window_info.h;
 
-  buffer.buffer = init_buffer(init_w, init_h);
+  nib_buffer.buffer = nib_init_buffer(init_w, init_h);
 
-  buffer_ready = 1;
+  nib_buffer_ready = 1;
 
   glfwSetErrorCallback(error_callback);
 
@@ -84,7 +78,7 @@ GLFWwindow* init_os_window() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  GLFWwindow *window = glfwCreateWindow(init_w, init_h, window_info.name, NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(init_w, init_h, nib_window_info.name, NULL, NULL);
   if (!window) {
     glfwTerminate();
     exit(EXIT_FAILURE);
@@ -96,90 +90,25 @@ GLFWwindow* init_os_window() {
   glfwSwapInterval(1);
 
 
-  buffer.w = init_w;
-  buffer.h = init_h;
+  nib_buffer.w = init_w;
+  nib_buffer.h = init_h;
 
-  glfwSetFramebufferSizeCallback(window, frame_resize);
+  glfwSetFramebufferSizeCallback(window, nib_frame_resize);
 
   return window;
 }
 
 
-int window_is_open(GLFWwindow* window) {
+int nib_window_is_open(GLFWwindow* window) {
   return !glfwWindowShouldClose(window);
 }
 
 
-int close_window(GLFWwindow* window) {
+int nib_close_window(GLFWwindow* window) {
   glfwDestroyWindow(window);
   glfwTerminate();
   return 0;
 }
 
-
-// main func is only for testing
-int main(void) {
-  set_window_info("Le Window", 500, 500);
-  GLFWwindow* window;
-  window = init_os_window();
-
-
-  wait_for_buffer();
-
-
-  int offset = 0;
-  while (window_is_open(window)) {
-
-    fill_buffer((Pixel){0.5f, 0.9f, 1.0f, 1.0f}, buffer.buffer,
-                buffer.w, buffer.h);
-
-    if (offset >= 0 && offset < 361) {
-
-        Pixel* square = rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
-
-        apply_radius(square, 100, 100, 20);
-
-        Pixel* anti_aliased = apply_antialiasing(square, 100, 100, 1);
-        free(square);   // free padded buffer
-        square = anti_aliased;
-
-        int sq_w, sq_h;
-        Pixel* padded = add_padding(square, 100, 100, 140, 140, 140, 140,
-                                    (Pixel){0.0f, 0.0f, 0.0f, 0.0f}, &sq_w, &sq_h);
-
-        free(square);   // free original square
-        square = padded; // square now points to padded buffer
-
-        Pixel* resized = resize(square, 100+offset, sq_w, sq_h, &sq_w, &sq_h);
-        free(square);   // free padded buffer
-        square = resized;
-
-        // Step 5: merge with main buffer
-        int adjusted_x0 = 200 - (sq_w - 100)/2;
-        int adjusted_y0 = 200 - (sq_h - 100)/2;
-        merge_buffers(buffer.buffer, buffer.w, buffer.h, square, sq_w, sq_h,
-                      adjusted_x0, adjusted_y0);
-
-        free(square);   // finally free resized buffer
-
-        offset++;
-    }
-
-
-    display_buffer(window, buffer.buffer, buffer.w, buffer.h);
-
-    // when i know more abt this ill make an alias for it 
-    glfwPollEvents();
-  }
-
-  if (buffer.buffer != NULL) {
-      free(buffer.buffer);
-      buffer.buffer = NULL; 
-  }
-
-  close_window(window);
-
-  return 0;
-}
 
 

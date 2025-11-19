@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src
 
-C_FLAGS = -std=gnu11
+C_FLAGS = -std=gnu99
 

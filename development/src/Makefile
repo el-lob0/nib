@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named nib
+
+# Build rule for target.
+nib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 nib
+.PHONY : nib
+
+# fast build rule for target.
+nib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/build
+.PHONY : nib/fast
+
+#=============================================================================
 # Target rules for targets named painter
 
 # Build rule for target.
@@ -128,6 +141,54 @@ painter: cmake_check_build_system
 painter/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/build
 .PHONY : painter/fast
+
+buffer.o: buffer.c.o
+.PHONY : buffer.o
+
+# target to build an object file
+buffer.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/buffer.c.o
+.PHONY : buffer.c.o
+
+buffer.i: buffer.c.i
+.PHONY : buffer.i
+
+# target to preprocess a source file
+buffer.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/buffer.c.i
+.PHONY : buffer.c.i
+
+buffer.s: buffer.c.s
+.PHONY : buffer.s
+
+# target to generate assembly for a file
+buffer.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/buffer.c.s
+.PHONY : buffer.c.s
+
+display.o: display.c.o
+.PHONY : display.o
+
+# target to build an object file
+display.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/display.c.o
+.PHONY : display.c.o
+
+display.i: display.c.i
+.PHONY : display.i
+
+# target to preprocess a source file
+display.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/display.c.i
+.PHONY : display.c.i
+
+display.s: display.c.s
+.PHONY : display.s
+
+# target to generate assembly for a file
+display.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/display.c.s
+.PHONY : display.c.s
 
 glad.o: glad.c.o
 .PHONY : glad.o
@@ -158,6 +219,7 @@ painter.o: painter.c.o
 
 # target to build an object file
 painter.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.o
 .PHONY : painter.c.o
 
@@ -166,6 +228,7 @@ painter.i: painter.c.i
 
 # target to preprocess a source file
 painter.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.i
 .PHONY : painter.c.i
 
@@ -174,6 +237,7 @@ painter.s: painter.c.s
 
 # target to generate assembly for a file
 painter.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.s
 .PHONY : painter.c.s
 
@@ -185,7 +249,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... nib"
 	@echo "... painter"
+	@echo "... buffer.o"
+	@echo "... buffer.i"
+	@echo "... buffer.s"
+	@echo "... display.o"
+	@echo "... display.i"
+	@echo "... display.s"
 	@echo "... glad.o"
 	@echo "... glad.i"
 	@echo "... glad.s"

@@ -1,13 +1,31 @@
 [
 {
   "directory": "/home/geronimo/dev/nib/development/src",
-  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu11 -o CMakeFiles/painter.dir/painter.c.o -c /home/geronimo/dev/nib/development/src/painter.c",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -I/home/geronimo/dev/nib/development/src/include -std=gnu99 -o CMakeFiles/nib.dir/painter.c.o -c /home/geronimo/dev/nib/development/src/painter.c",
+  "file": "/home/geronimo/dev/nib/development/src/painter.c",
+  "output": "CMakeFiles/nib.dir/painter.c.o"
+},
+{
+  "directory": "/home/geronimo/dev/nib/development/src",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -I/home/geronimo/dev/nib/development/src/include -std=gnu99 -o CMakeFiles/nib.dir/buffer.c.o -c /home/geronimo/dev/nib/development/src/buffer.c",
+  "file": "/home/geronimo/dev/nib/development/src/buffer.c",
+  "output": "CMakeFiles/nib.dir/buffer.c.o"
+},
+{
+  "directory": "/home/geronimo/dev/nib/development/src",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -I/home/geronimo/dev/nib/development/src/include -std=gnu99 -o CMakeFiles/nib.dir/display.c.o -c /home/geronimo/dev/nib/development/src/display.c",
+  "file": "/home/geronimo/dev/nib/development/src/display.c",
+  "output": "CMakeFiles/nib.dir/display.c.o"
+},
+{
+  "directory": "/home/geronimo/dev/nib/development/src",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu99 -o CMakeFiles/painter.dir/painter.c.o -c /home/geronimo/dev/nib/development/src/painter.c",
   "file": "/home/geronimo/dev/nib/development/src/painter.c",
   "output": "CMakeFiles/painter.dir/painter.c.o"
 },
 {
   "directory": "/home/geronimo/dev/nib/development/src",
-  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu11 -o CMakeFiles/painter.dir/glad.c.o -c /home/geronimo/dev/nib/development/src/glad.c",
+  "command": "/usr/bin/cc  -I/home/geronimo/dev/nib/development/src/../include -I/home/geronimo/dev/nib/development/src -std=gnu99 -o CMakeFiles/painter.dir/glad.c.o -c /home/geronimo/dev/nib/development/src/glad.c",
   "file": "/home/geronimo/dev/nib/development/src/glad.c",
   "output": "CMakeFiles/painter.dir/glad.c.o"
 }

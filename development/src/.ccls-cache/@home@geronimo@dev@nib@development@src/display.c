@@ -30,7 +30,7 @@ static void key_callback(GLFWwindow *window, int key, int scancode, int action,
     glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
 
-int display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h) {
+int nib_display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h) {
   static GLuint vao = 0;
   static GLuint vbo = 0;
   static GLuint tex = 0;

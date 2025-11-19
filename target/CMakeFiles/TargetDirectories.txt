@@ -1,0 +1,3 @@
+/home/geronimo/dev/nib/target/CMakeFiles/example.dir
+/home/geronimo/dev/nib/target/CMakeFiles/edit_cache.dir
+/home/geronimo/dev/nib/target/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/geronimo/dev/nib/target/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

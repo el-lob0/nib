@@ -16,7 +16,7 @@
 
 
 
-Pixel *init_buffer(int width, int height) {
+Pixel *nib_init_buffer(int width, int height) {
 
   Pixel *buffer = malloc(width * height * sizeof(Pixel));
 
@@ -29,7 +29,7 @@ Pixel *init_buffer(int width, int height) {
 
 
 // useable, but needs to be checked
-void fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
+void nib_fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
   for (int i = 0; i < w * h; i++) {
     buffer[i] = rgba;
   }
@@ -39,7 +39,7 @@ void fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
 /// These functions are helpers for applying transformations to the buffers
 
 
-Pixel *rotate(Pixel *buffer, int degree, int w, int h) {
+Pixel *nib_rotate(Pixel *buffer, int degree, int w, int h) {
     Pixel *out = malloc(w * h * sizeof(Pixel));
     if (!out || !buffer) return NULL;
 
@@ -74,7 +74,7 @@ Pixel *rotate(Pixel *buffer, int degree, int w, int h) {
     return out;
 }
 
-Pixel *add_padding(Pixel *buffer, int w, int h,
+Pixel *nib_add_padding(Pixel *buffer, int w, int h,
                    int pad_left, int pad_right,
                    int pad_top, int pad_bottom,
                    Pixel pad_color,
@@ -142,7 +142,7 @@ Pixel *scale_buffer_center(Pixel *buffer, int w, int h,
     return out;
 }
 
-Pixel *apply_antialiasing(Pixel *buffer, int w, int h, int feather) {
+Pixel *nib_apply_antialiasing(Pixel *buffer, int w, int h, int feather) {
     if (!buffer || feather <= 0) return buffer;
 
     Pixel *out = malloc(w * h * sizeof(Pixel));
@@ -192,7 +192,7 @@ Pixel *apply_antialiasing(Pixel *buffer, int w, int h, int feather) {
     return out;
 }
 
-void apply_radius(Pixel *buffer, int w, int h, int radius) {
+void nib_apply_radius(Pixel *buffer, int w, int h, int radius) {
     if (!buffer || radius <= 0) return;
 
     // Top-left corner
@@ -239,8 +239,8 @@ void apply_radius(Pixel *buffer, int w, int h, int radius) {
 
 
 
-Pixel *rectangle(Pixel color, int w, int h) {
-    Pixel *buf = init_buffer(w, h);
+Pixel *nib_rectangle(Pixel color, int w, int h) {
+    Pixel *buf = nib_init_buffer(w, h);
     if (!buf) return NULL;
 
     for (int y = 0; y < h; y++) {
@@ -256,7 +256,7 @@ Pixel *rectangle(Pixel color, int w, int h) {
 
 
 
-Pixel *resize(Pixel *buffer, int new_w, int w, int h,
+Pixel *nib_resize(Pixel *buffer, int new_w, int w, int h,
               int *out_w, int *out_h)
 {
     Pixel *out = scale_buffer_center(buffer, w, h, new_w, 
@@ -266,7 +266,7 @@ Pixel *resize(Pixel *buffer, int new_w, int w, int h,
     return out;
 }
 
-void merge_buffers(
+void nib_merge_buffers(
     Pixel *bg, int bw, int bh,
     Pixel *fg, int fw, int fh,
     int x0, int y0) 
@@ -299,29 +299,9 @@ void merge_buffers(
 }
 
 
-Pixel *bitmap_to_buffer(int bitmap /*placeholder param*/ ) {
-  return init_buffer(0, 0);
+Pixel *nib_bitmap_to_buffer(int bitmap /*placeholder param*/ ) {
+  return nib_init_buffer(0, 0);
 }
 
-void calculate_position() {}
+void nib_calculate_position() {}
 
-
-void draw_square(Pixel rgba, Pixel *buffer, int w, int h, int offset) {
-    int size = 100; // square size
-
-    int start_x = offset;
-    int start_y = offset;
-    int end_x   = start_x + size;
-    int end_y   = start_y + size;
-
-    if (start_x >= w || start_y >= h) return;
-    if (end_x > w) end_x = w;
-    if (end_y > h) end_y = h;
-
-    for (int y = start_y; y < end_y; y++) {
-        int row = y * w;
-        for (int x = start_x; x < end_x; x++) {
-            buffer[row + x] = rgba;
-        }
-    }
-}
