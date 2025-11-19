@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/geronimo/dev/nib/target/example.c" "CMakeFiles/example.dir/example.c.o" "gcc" "CMakeFiles/example.dir/example.c.o.d"
+  "/home/geronimo/dev/nib/target/include/glad.c" "CMakeFiles/example.dir/include/glad.c.o" "gcc" "CMakeFiles/example.dir/include/glad.c.o.d"
+  "/home/geronimo/dev/nib/target/src/example.c" "CMakeFiles/example.dir/src/example.c.o" "gcc" "CMakeFiles/example.dir/src/example.c.o.d"
   "" "example" "gcc" "CMakeFiles/example.dir/link.d"
   )
 

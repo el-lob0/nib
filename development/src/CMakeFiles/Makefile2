@@ -64,12 +64,10 @@ CMAKE_BINARY_DIR = /home/geronimo/dev/nib/development/src
 
 # The main recursive "all" target.
 all: CMakeFiles/nib.dir/all
-all: CMakeFiles/painter.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/nib.dir/codegen
-codegen: CMakeFiles/painter.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -78,7 +76,6 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/nib.dir/clean
-clean: CMakeFiles/painter.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -112,38 +109,6 @@ CMakeFiles/nib.dir/codegen:
 CMakeFiles/nib.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/clean
 .PHONY : CMakeFiles/nib.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/painter.dir
-
-# All Build rule for target.
-CMakeFiles/painter.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/geronimo/dev/nib/development/src/CMakeFiles --progress-num=5,6,7 "Built target painter"
-.PHONY : CMakeFiles/painter.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/painter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/geronimo/dev/nib/development/src/CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/painter.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/geronimo/dev/nib/development/src/CMakeFiles 0
-.PHONY : CMakeFiles/painter.dir/rule
-
-# Convenience name for target.
-painter: CMakeFiles/painter.dir/rule
-.PHONY : painter
-
-# codegen rule for target.
-CMakeFiles/painter.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/geronimo/dev/nib/development/src/CMakeFiles --progress-num=5,6,7 "Finished codegen for target painter"
-.PHONY : CMakeFiles/painter.dir/codegen
-
-# clean rule for target.
-CMakeFiles/painter.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/clean
-.PHONY : CMakeFiles/painter.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

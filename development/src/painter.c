@@ -5,19 +5,18 @@
 #include <pthread.h>
 #include "./buffer.c" // imports all that is in display.c as well
 #include <stddef.h>
-// #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
 
-volatile int nib_buffer_ready = 0;
 
+// this is here because of C's stupid library linking mechanism
 typedef struct {
-  Pixel* buffer;
   int w;
   int h;
-} Display;
+} WindowInfo;
 
+volatile int nib_buffer_ready = 0;
 
 static Display nib_buffer = {
     .buffer = NULL,
@@ -25,28 +24,15 @@ static Display nib_buffer = {
     .h = 1000,
 };
 
-
-typedef struct {
-  sds name;
-  int w;
-  int h;
-} WindowInfo;
-
 static WindowInfo nib_window_info = {
-    .name = "",
-    .w = 0,
-    .h = 0,
+    .w = 500,
+    .h = 500,
 };
 
 void nib_frame_resize(GLFWwindow *window, int w, int h) {
   if (nib_buffer.buffer) free(nib_buffer.buffer);
   nib_buffer.buffer = nib_init_buffer(w, h);
   nib_buffer.w = w; nib_buffer.h = h;
-}
-
-void nib_set_window_info(sds name, int w, int h) {
-  nib_window_info.name = name;
-  nib_window_info.w = w; nib_window_info.h = h;
 }
 
 
@@ -60,7 +46,7 @@ void nib_wait_for_buffer() {
 }
 
 
-GLFWwindow* nib_init_os_window() {
+GLFWwindow* nib_init_os_window(const char *title) {
 
   int init_w = nib_window_info.w;
   int init_h = nib_window_info.h;
@@ -78,7 +64,7 @@ GLFWwindow* nib_init_os_window() {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-  GLFWwindow *window = glfwCreateWindow(init_w, init_h, nib_window_info.name, NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(init_w, init_h, title, NULL, NULL);
   if (!window) {
     glfwTerminate();
     exit(EXIT_FAILURE);
@@ -109,6 +95,5 @@ int nib_close_window(GLFWwindow* window) {
   glfwTerminate();
   return 0;
 }
-
 
 

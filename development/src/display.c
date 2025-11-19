@@ -8,12 +8,9 @@
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "nib.h"
+// #include "./sds/sds.c"
 
-#include "./sds/sds.c"
-
-typedef struct {
-  float r, g, b, a;
-} Pixel;
 
 typedef struct Vertex {
   vec2 pos;

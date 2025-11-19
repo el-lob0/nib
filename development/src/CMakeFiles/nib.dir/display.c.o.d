@@ -44,13 +44,4 @@ CMakeFiles/nib.dir/display.c.o: \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-float.h \
- /home/geronimo/dev/nib/development/src/./sds/sds.c /usr/include/ctype.h \
- /usr/include/assert.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/limits.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/syslimits.h \
- /usr/include/limits.h /usr/include/bits/posix1_lim.h \
- /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
- /usr/include/bits/pthread_stack_min-dynamic.h \
- /usr/include/bits/pthread_stack_min.h /usr/include/bits/posix2_lim.h \
- /home/geronimo/dev/nib/development/src/./sds/sds.h \
- /home/geronimo/dev/nib/development/src/./sds/sdsalloc.h
+ /home/geronimo/dev/nib/development/src/nib.h

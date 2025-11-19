@@ -72,33 +72,49 @@ include CMakeFiles/example.dir/flags.make
 CMakeFiles/example.dir/codegen:
 .PHONY : CMakeFiles/example.dir/codegen
 
-CMakeFiles/example.dir/example.c.o: CMakeFiles/example.dir/flags.make
-CMakeFiles/example.dir/example.c.o: example.c
-CMakeFiles/example.dir/example.c.o: CMakeFiles/example.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/nib/target/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/example.dir/example.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/example.dir/example.c.o -MF CMakeFiles/example.dir/example.c.o.d -o CMakeFiles/example.dir/example.c.o -c /home/geronimo/dev/nib/target/example.c
+CMakeFiles/example.dir/src/example.c.o: CMakeFiles/example.dir/flags.make
+CMakeFiles/example.dir/src/example.c.o: src/example.c
+CMakeFiles/example.dir/src/example.c.o: CMakeFiles/example.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/nib/target/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/example.dir/src/example.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/example.dir/src/example.c.o -MF CMakeFiles/example.dir/src/example.c.o.d -o CMakeFiles/example.dir/src/example.c.o -c /home/geronimo/dev/nib/target/src/example.c
 
-CMakeFiles/example.dir/example.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/example.dir/example.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/nib/target/example.c > CMakeFiles/example.dir/example.c.i
+CMakeFiles/example.dir/src/example.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/example.dir/src/example.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/nib/target/src/example.c > CMakeFiles/example.dir/src/example.c.i
 
-CMakeFiles/example.dir/example.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/example.dir/example.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/nib/target/example.c -o CMakeFiles/example.dir/example.c.s
+CMakeFiles/example.dir/src/example.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/example.dir/src/example.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/nib/target/src/example.c -o CMakeFiles/example.dir/src/example.c.s
+
+CMakeFiles/example.dir/include/glad.c.o: CMakeFiles/example.dir/flags.make
+CMakeFiles/example.dir/include/glad.c.o: include/glad.c
+CMakeFiles/example.dir/include/glad.c.o: CMakeFiles/example.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/geronimo/dev/nib/target/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/example.dir/include/glad.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/example.dir/include/glad.c.o -MF CMakeFiles/example.dir/include/glad.c.o.d -o CMakeFiles/example.dir/include/glad.c.o -c /home/geronimo/dev/nib/target/include/glad.c
+
+CMakeFiles/example.dir/include/glad.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/example.dir/include/glad.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geronimo/dev/nib/target/include/glad.c > CMakeFiles/example.dir/include/glad.c.i
+
+CMakeFiles/example.dir/include/glad.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/example.dir/include/glad.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geronimo/dev/nib/target/include/glad.c -o CMakeFiles/example.dir/include/glad.c.s
 
 # Object files for target example
 example_OBJECTS = \
-"CMakeFiles/example.dir/example.c.o"
+"CMakeFiles/example.dir/src/example.c.o" \
+"CMakeFiles/example.dir/include/glad.c.o"
 
 # External object files for target example
 example_EXTERNAL_OBJECTS =
 
-example: CMakeFiles/example.dir/example.c.o
+example: CMakeFiles/example.dir/src/example.c.o
+example: CMakeFiles/example.dir/include/glad.c.o
 example: CMakeFiles/example.dir/build.make
 example: CMakeFiles/example.dir/compiler_depend.ts
-example: libnib.a
+example: include/libnib.a
 example: CMakeFiles/example.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/geronimo/dev/nib/target/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable example"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/geronimo/dev/nib/target/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable example"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/example.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

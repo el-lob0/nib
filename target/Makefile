@@ -129,29 +129,53 @@ example/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/build
 .PHONY : example/fast
 
-example.o: example.c.o
-.PHONY : example.o
+include/glad.o: include/glad.c.o
+.PHONY : include/glad.o
 
 # target to build an object file
-example.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/example.c.o
-.PHONY : example.c.o
+include/glad.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/include/glad.c.o
+.PHONY : include/glad.c.o
 
-example.i: example.c.i
-.PHONY : example.i
+include/glad.i: include/glad.c.i
+.PHONY : include/glad.i
 
 # target to preprocess a source file
-example.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/example.c.i
-.PHONY : example.c.i
+include/glad.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/include/glad.c.i
+.PHONY : include/glad.c.i
 
-example.s: example.c.s
-.PHONY : example.s
+include/glad.s: include/glad.c.s
+.PHONY : include/glad.s
 
 # target to generate assembly for a file
-example.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/example.c.s
-.PHONY : example.c.s
+include/glad.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/include/glad.c.s
+.PHONY : include/glad.c.s
+
+src/example.o: src/example.c.o
+.PHONY : src/example.o
+
+# target to build an object file
+src/example.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/example.c.o
+.PHONY : src/example.c.o
+
+src/example.i: src/example.c.i
+.PHONY : src/example.i
+
+# target to preprocess a source file
+src/example.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/example.c.i
+.PHONY : src/example.c.i
+
+src/example.s: src/example.c.s
+.PHONY : src/example.s
+
+# target to generate assembly for a file
+src/example.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/example.dir/build.make CMakeFiles/example.dir/src/example.c.s
+.PHONY : src/example.c.s
 
 # Help Target
 help:
@@ -162,9 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... example"
-	@echo "... example.o"
-	@echo "... example.i"
-	@echo "... example.s"
+	@echo "... include/glad.o"
+	@echo "... include/glad.i"
+	@echo "... include/glad.s"
+	@echo "... src/example.o"
+	@echo "... src/example.i"
+	@echo "... src/example.s"
 .PHONY : help
 
 

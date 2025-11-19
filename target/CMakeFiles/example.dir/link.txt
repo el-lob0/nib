@@ -1,1 +1,1 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/example.dir/link.d CMakeFiles/example.dir/example.c.o -o example  libnib.a -lglfw -ldl -lm -lGL
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/example.dir/link.d CMakeFiles/example.dir/src/example.c.o CMakeFiles/example.dir/include/glad.c.o -o example  include/libnib.a -lglfw -ldl -lm -lGL

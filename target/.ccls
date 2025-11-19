@@ -1,0 +1,6 @@
+%clang
+-I/usr/include
+-I/usr/include/glad
+-I/usr/include/GLFW
+-std=c11
+include/

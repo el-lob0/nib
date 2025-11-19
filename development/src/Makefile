@@ -129,19 +129,6 @@ nib/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/build
 .PHONY : nib/fast
 
-#=============================================================================
-# Target rules for targets named painter
-
-# Build rule for target.
-painter: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 painter
-.PHONY : painter
-
-# fast build rule for target.
-painter/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/build
-.PHONY : painter/fast
-
 buffer.o: buffer.c.o
 .PHONY : buffer.o
 
@@ -190,37 +177,12 @@ display.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/display.c.s
 .PHONY : display.c.s
 
-glad.o: glad.c.o
-.PHONY : glad.o
-
-# target to build an object file
-glad.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/glad.c.o
-.PHONY : glad.c.o
-
-glad.i: glad.c.i
-.PHONY : glad.i
-
-# target to preprocess a source file
-glad.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/glad.c.i
-.PHONY : glad.c.i
-
-glad.s: glad.c.s
-.PHONY : glad.s
-
-# target to generate assembly for a file
-glad.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/glad.c.s
-.PHONY : glad.c.s
-
 painter.o: painter.c.o
 .PHONY : painter.o
 
 # target to build an object file
 painter.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.o
 .PHONY : painter.c.o
 
 painter.i: painter.c.i
@@ -229,7 +191,6 @@ painter.i: painter.c.i
 # target to preprocess a source file
 painter.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.i
 .PHONY : painter.c.i
 
 painter.s: painter.c.s
@@ -238,7 +199,6 @@ painter.s: painter.c.s
 # target to generate assembly for a file
 painter.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/nib.dir/build.make CMakeFiles/nib.dir/painter.c.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/painter.dir/build.make CMakeFiles/painter.dir/painter.c.s
 .PHONY : painter.c.s
 
 # Help Target
@@ -250,16 +210,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... nib"
-	@echo "... painter"
 	@echo "... buffer.o"
 	@echo "... buffer.i"
 	@echo "... buffer.s"
 	@echo "... display.o"
 	@echo "... display.i"
 	@echo "... display.s"
-	@echo "... glad.o"
-	@echo "... glad.i"
-	@echo "... glad.s"
 	@echo "... painter.o"
 	@echo "... painter.i"
 	@echo "... painter.s"

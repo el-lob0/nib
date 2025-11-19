@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/example.dir/link.d"
-  "CMakeFiles/example.dir/example.c.o"
-  "CMakeFiles/example.dir/example.c.o.d"
+  "CMakeFiles/example.dir/include/glad.c.o"
+  "CMakeFiles/example.dir/include/glad.c.o.d"
+  "CMakeFiles/example.dir/src/example.c.o"
+  "CMakeFiles/example.dir/src/example.c.o.d"
   "example"
   "example.pdb"
 )

@@ -8,17 +8,17 @@ find_package(PkgConfig REQUIRED)
 pkg_check_modules(GLFW REQUIRED glfw3)
 
 add_executable(example
-    example.c
+    src/example.c
+    include/glad.c
 )
 
 target_include_directories(example PUBLIC
     ${GLFW_INCLUDE_DIRS}
-    ${CMAKE_SOURCE_DIR}/glad/
-    ${CMAKE_SOURCE_DIR}
+    ${CMAKE_SOURCE_DIR}/include/
 )
 
 target_link_libraries(example
-    ${CMAKE_SOURCE_DIR}/libnib.a
+    ${CMAKE_SOURCE_DIR}/include/libnib.a
     ${GLFW_LIBRARIES}
     dl
     m

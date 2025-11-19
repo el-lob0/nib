@@ -2,8 +2,9 @@ example: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
-  CMakeFiles/example.dir/example.c.o \
-  libnib.a \
+  CMakeFiles/example.dir/src/example.c.o \
+  CMakeFiles/example.dir/include/glad.c.o \
+  include/libnib.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglfw.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
@@ -52,9 +53,11 @@ example: \
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
 
-CMakeFiles/example.dir/example.c.o:
+CMakeFiles/example.dir/src/example.c.o:
 
-libnib.a:
+CMakeFiles/example.dir/include/glad.c.o:
+
+include/libnib.a:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libglfw.so:
 

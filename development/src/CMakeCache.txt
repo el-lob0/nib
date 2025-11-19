@@ -204,6 +204,9 @@ nib_BINARY_DIR:STATIC=/home/geronimo/dev/nib/development/src
 //Value Computed by CMake
 nib_IS_TOP_LEVEL:STATIC=ON
 
+//Dependencies for the target
+nib_LIB_DEPENDS:STATIC=general;glfw;general;dl;general;m;
+
 //Value Computed by CMake
 nib_SOURCE_DIR:STATIC=/home/geronimo/dev/nib/development/src
 

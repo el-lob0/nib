@@ -3,30 +3,47 @@
 #define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 #include "nib.h"
+#include <stdlib.h>
+
+
+typedef struct {
+  int w;
+  int h;
+} WindowInfo;
+
+
 
 static Display nib_buffer = {
     .buffer = NULL,
-    .w = 1000,
-    .h = 1000,
+    .w = 500,
+    .h = 500,
 };
 
 static WindowInfo nib_window_info = {
-    .name = "",
-    .w = 0,
-    .h = 0,
+    .w = 500,
+    .h = 500,
 };
 
-volatile int nib_buffer_ready = 0;
+
+
+void frame_resize(GLFWwindow *window, int w, int h) {
+  if (nib_buffer.buffer) free(nib_buffer.buffer);
+  nib_buffer.buffer = nib_init_buffer(w, h);
+  nib_buffer.w = w; nib_buffer.h = h;
+}
+
+
+// volatile int nib_buffer_ready = 0;
 
 int main(void) {
-  nib_set_window_info("Le Window", 500, 500);
   GLFWwindow* window;
-  window = nib_init_os_window();
+  const char* title = "title";
+  window = nib_init_os_window(title);
 
-
+  nib_buffer.buffer = nib_init_buffer(500, 500);
   nib_wait_for_buffer();
 
-
+  glfwSetFramebufferSizeCallback(window, frame_resize);
   int offset = 0;
   while (nib_window_is_open(window)) {
 

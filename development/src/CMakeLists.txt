@@ -25,13 +25,10 @@ target_include_directories(nib PUBLIC include)
 
 
 
-# Add executable
-add_executable(painter painter.c glad.c)
-
 
 
 # Link libraries
-target_link_libraries(painter ${GLFW_LIBRARIES} dl m)  # Linux
+target_link_libraries(nib ${GLFW_LIBRARIES} dl m)  # Linux
 
 # set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -g -O1")
 # set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")

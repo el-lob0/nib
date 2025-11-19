@@ -1,6 +1,5 @@
 #pragma once
 #include <stdint.h>
-#include "./sds/sds.c"
 
 
 typedef struct {
@@ -13,11 +12,6 @@ typedef struct {
   int h;
 } Display;
 
-typedef struct {
-  sds name;
-  int w;
-  int h;
-} WindowInfo;
 
 /// initialize a black colored buffer of size width/height
 Pixel* nib_init_buffer(int width, int height);
@@ -70,7 +64,7 @@ void nib_wait_for_buffer(void);
 void nib_frame_resize(GLFWwindow *window, int w, int h);
 
 /// start window
-GLFWwindow* nib_init_os_window(void);
+GLFWwindow* nib_init_os_window(const char *title);
 
 /// check used to keep main loop running
 int nib_window_is_open(GLFWwindow* window);

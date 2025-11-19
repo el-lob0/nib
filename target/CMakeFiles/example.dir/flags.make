@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/geronimo/dev/nib/target/glad -I/home/geronimo/dev/nib/target
+C_INCLUDES = -I/home/geronimo/dev/nib/target/include
 
 C_FLAGS = -std=gnu99
 
