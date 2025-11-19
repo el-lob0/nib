@@ -125,6 +125,6 @@ nib_read_window_size(window, frame_resize);
 
 # TODO:  
 
-[ ]- Bitmap to buffer (for font rendering)
-[X]- Input event forwarding
-[ ]- idk
+[ ]- Bitmap to buffer (for font rendering)  
+[X]- Input event forwarding  
+[ ]- idk  
