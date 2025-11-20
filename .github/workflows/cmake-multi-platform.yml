@@ -1,0 +1,36 @@
+name: CMake Windows Build & Test
+
+on:
+  push:
+    branches: [ "master"]
+  pull_request:
+    branches: [ "master"]
+
+jobs:
+  build:
+    # Use the windows-latest runner
+    runs-on: windows-latest
+
+    # Set environment variables for the build configuration
+    env:
+      BUILD_DIR: ${{ github.workspace }}/build
+      BUILD_TYPE: Release # Or Debug
+
+    steps:
+      - name: Checkout Repository
+        # Action to pull your code from GitHub
+        uses: actions/checkout@v4
+
+      - name: Configure CMake
+        # We use the Visual Studio Generator, which is the default/preferred compiler 
+        # on the Windows runners and is set up automatically.
+        run: cmake -S . -B ${{ env.BUILD_DIR }} -G "Visual Studio 17 2022" -DCMAKE_BUILD_TYPE=${{ env.BUILD_TYPE }}
+
+      - name: Build Project
+        # The --build command uses the generated Visual Studio project files to compile
+        run: cmake --build ${{ env.BUILD_DIR }} --config ${{ env.BUILD_TYPE }} --target ALL_BUILD
+
+      - name: Run Tests (using CTest)
+        # This step assumes you have tests defined in your CMakeLists.txt
+        # using 'enable_testing()' and 'add_test()'
+        run: ctest -C ${{ env.BUILD_TYPE }} --test-dir ${{ env.BUILD_DIR }} --output-on-failure
