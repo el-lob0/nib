@@ -2,11 +2,10 @@
 
 <img width="3000" height="2000" alt="nib" src="https://github.com/user-attachments/assets/60a0ce48-3b6f-4235-ab0a-47edf9ed4d88" />  
 
-Nib is a raster software rendering library that uses glfw and openGL.  
-(Thus i can say its gpu-accelerated)  
+GLFW and OpenGL wrapper for raster rendering.
   
-Feel free to make an issue or pr.
-
+## Still a wip
+(work in progress)
 
 ### > development:
 The library's messy project files.  
