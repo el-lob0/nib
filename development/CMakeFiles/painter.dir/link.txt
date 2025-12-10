@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/painter.dir/link.d CMakeFiles/painter.dir/src/painter.c.o CMakeFiles/painter.dir/src/glad.c.o -o painter  -lglfw -ldl -lm

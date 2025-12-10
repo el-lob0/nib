@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/geronimo/dev/nib/development/src/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

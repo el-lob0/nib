@@ -1,2 +1,0 @@
-/usr/bin/ar qc libnib.a CMakeFiles/nib.dir/painter.c.o CMakeFiles/nib.dir/buffer.c.o CMakeFiles/nib.dir/display.c.o
-/usr/bin/ranlib libnib.a

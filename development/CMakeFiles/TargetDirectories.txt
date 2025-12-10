@@ -1,3 +1,0 @@
-/home/geronimo/dev/nib/open_gl_wrapper/CMakeFiles/painter.dir
-/home/geronimo/dev/nib/open_gl_wrapper/CMakeFiles/edit_cache.dir
-/home/geronimo/dev/nib/open_gl_wrapper/CMakeFiles/rebuild_cache.dir
