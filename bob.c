@@ -22,8 +22,8 @@
 #include "nob.h"
 
 // Some folder paths that we use throughout the build process.
-#define BUILD_FOLDER "example/build/"
-#define SRC_FOLDER   "example/src/"
+#define BUILD_FOLDER "build/"
+#define SRC_FOLDER   "src/"
 
 int main(int argc, char **argv)
 {
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
     // Let's append the command line arguments
 #if !defined(_MSC_VER)
     // On POSIX
-    nob_cmd_append(&cmd, "gcc", "-Wall", "-Wextra", "-o", "example/build/example", "example/src/example.c", "example/include/glad.c", "-I./example/include","-lglfw", "-lm");
+    nob_cmd_append(&cmd, "gcc", "-Wall", "-Wextra", "-o", "build/example", "src/example.c", "include/glad.c", "-I./include","-lglfw", "-lm");
 #else
     // On MSVC
     nob_cmd_append(&cmd, "cl", "-I.", "-o", BUILD_FOLDER"hello", SRC_FOLDER"hello.c");

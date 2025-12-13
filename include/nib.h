@@ -390,6 +390,39 @@ void nib_fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
 }
 
 
+
+typedef struct {
+  int x;
+  int y;
+} Position;
+
+Position start_pos = { .x = 0, .y = 0 };
+
+Pixel *nib_init_surface(Pixel rgba, int w, int h) {
+
+}
+
+void nib_start_draw(Pixel *surface, int x, int y) {
+
+}
+
+void nib_move_to(Pixel *surface, int x, int y) {
+
+}
+
+void nib_line_to(Pixel *surface, int x, int y) {
+
+}
+
+void nib_close_line(Pixel *surface) {
+  
+}
+
+void nib_end_draw(Pixel *surface) {
+
+}
+
+
 /// These functions are helpers for applying transformations to the buffers
 
 Pixel *nib_add_padding(Pixel *buffer, int w, int h,
@@ -423,42 +456,6 @@ Pixel *nib_add_padding(Pixel *buffer, int w, int h,
     return newbuf;
 }
 
-
-Pixel *scale_buffer_center(Pixel *buffer, int w, int h,
-                           int new_w, int new_h)
-{
-    Pixel *out = malloc(new_w * new_h * sizeof(Pixel));
-    if (!out) return NULL;
-
-    float scale_x = (float)new_w / w;
-    float scale_y = (float)new_h / h;
-
-// Use (Dimension - 1) / 2.0f for the true geometric center coordinate
-    float cx_in = (w - 1) / 2.0f;
-    float cy_in = (h - 1) / 2.0f;
-    float cx_out = (new_w - 1) / 2.0f;
-    float cy_out = (new_h - 1) / 2.0f;
-
-    for (int y = 0; y < new_h; y++) {
-        for (int x = 0; x < new_w; x++) {
-            float x_rel = x - cx_out;
-            float y_rel = y - cy_out;
-
-            float x_in = x_rel / scale_x + cx_in;
-            float y_in = y_rel / scale_y + cy_in;
-
-            int xi = (int)(x_in + 0.5f);
-            int yi = (int)(y_in + 0.5f);
-
-            if (xi >= 0 && xi < w && yi >= 0 && yi < h)
-                out[y * new_w + x] = buffer[yi * w + xi];
-            else
-                out[y * new_w + x] = (Pixel){0,0,0,0}; // transparent
-        }
-    }
-
-    return out;
-}
 
 void nib_apply_radius(Pixel *buffer, int w, int h, int radius) {
     if (!buffer || radius <= 0) return;
@@ -505,6 +502,7 @@ void nib_apply_radius(Pixel *buffer, int w, int h, int radius) {
 
 }
 
+
 Pixel *nib_rectangle(Pixel color, int w, int h) {
     Pixel *buf = nib_init_buffer(w, h);
     if (!buf) return NULL;
@@ -518,16 +516,6 @@ Pixel *nib_rectangle(Pixel color, int w, int h) {
     return buf;
 }
 
-
-Pixel *nib_resize(Pixel *buffer, int new_w, int w, int h,
-              int *out_w, int *out_h)
-{
-    Pixel *out = scale_buffer_center(buffer, w, h, new_w, 
-                                     (int)(h * ((float)new_w / w) + 0.5f));
-    *out_w = new_w;
-    *out_h = (int)(h * ((float)new_w / w) + 0.5f);
-    return out;
-}
 
 
 void nib_merge_buffers(
