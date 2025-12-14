@@ -34,6 +34,9 @@ typedef struct {
 /// initialize a black colored buffer of size width/height
 Pixel* nib_init_buffer(int width, int height);
 
+
+
+
 /// fill the buffer in the input parameters with the color input
 void nib_fill_buffer(Pixel rgba, Pixel* buffer, int w, int h);
 
@@ -218,12 +221,6 @@ static void error_callback(int error, const char *description) {
   fprintf(stderr, "Error: %s\n", description);
 }
 
-static void key_callback(GLFWwindow *window, int key, int scancode, int action,
-                         int mods) {
-  if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, GLFW_TRUE);
-}
-
 int nib_display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h) {
   static GLuint vao = 0;
   static GLuint vbo = 0;
@@ -391,37 +388,18 @@ void nib_fill_buffer(Pixel rgba, Pixel *buffer, int w, int h) {
 
 
 
-typedef struct {
-  int x;
-  int y;
-} Position;
+Pixel *nib_rectangle(Pixel color, int w, int h) {
+    Pixel *buf = nib_init_buffer(w, h);
+    if (!buf) return NULL;
 
-Position start_pos = { .x = 0, .y = 0 };
+    for (int y = 0; y < h; y++) {
+        for (int x = 0; x < w; x++) {
+            buf[y * w + x] = color;
+        }
+    }
 
-Pixel *nib_init_surface(Pixel rgba, int w, int h) {
-
+    return buf;
 }
-
-void nib_start_draw(Pixel *surface, int x, int y) {
-
-}
-
-void nib_move_to(Pixel *surface, int x, int y) {
-
-}
-
-void nib_line_to(Pixel *surface, int x, int y) {
-
-}
-
-void nib_close_line(Pixel *surface) {
-  
-}
-
-void nib_end_draw(Pixel *surface) {
-
-}
-
 
 /// These functions are helpers for applying transformations to the buffers
 
@@ -502,22 +480,6 @@ void nib_apply_radius(Pixel *buffer, int w, int h, int radius) {
 
 }
 
-
-Pixel *nib_rectangle(Pixel color, int w, int h) {
-    Pixel *buf = nib_init_buffer(w, h);
-    if (!buf) return NULL;
-
-    for (int y = 0; y < h; y++) {
-        for (int x = 0; x < w; x++) {
-            buf[y * w + x] = color;
-        }
-    }
-
-    return buf;
-}
-
-
-
 void nib_merge_buffers(
     Pixel *bg, int bw, int bh,
     Pixel *fg, int fw, int fh,
@@ -549,6 +511,5 @@ void nib_merge_buffers(
         }
     }
 }
-
 
 

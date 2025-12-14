@@ -1,129 +1,92 @@
 # Nib  
-Nib is a raster software rendering library that uses glfw and openGL.  
-(Thus i can say its gpu-accelerated)  
+Nib is a header-only C library that wraps OpenGL and GLFW to easily enable window creation and the use of openGL for showing pixel buffers as textures in that window.  
   
+    
 Feel free to make an issue or pr.
 
 
-### > development:
-The library's messy project files.  
+# Usage:
+Go to ``include/`` and copy ``nib.h`` into your corresponding project folder.  
+Make sure to have glfw and opengl correctly installed for building.  
+I used ``nob.h`` in the example with ``gcc`` for building.  
   
-
-### > target:
-The library: `libnib.a`, headers: `nib.h`.  
-
 # Dependencies
 OpenGL  
 GLFW  
-Cmake probably  
+Glad (I assume you can just copy mine)
 
-# Installation
-  
-Copy `libnib.a` and `nib.h` in your includes dir and then do your compiler shenanigans.  
 
 --- 
 
-# Usage  
+# Example  
   
-See `target/example.c` for a working example.
+See `src/example.c` for a working example.
+
+
 
 # Documentation
 
+Let's start by creating the window, and initializing a pixel buffer.  
 ```c
-#pragma once
-#include <stdint.h>
+GLFWwindow* window; // no type alias here
+const char* title = "title";
+window = nib_init_os_window(title);
 
-
-/// pixels, contains rgba values
-typedef struct {
-  float r, g, b, a;
-} Pixel;
-
-/// used to determine the main buffer's size, and the actual buffer to display.
-typedef struct {
-  Pixel* buffer;
-  int w;
-  int h;
-} Display;
-
-
-/// initialize a black colored buffer of size width/height
-Pixel* nib_init_buffer(int width, int height);
-
-/// fill the buffer in the input parameters with the color input
-void nib_fill_buffer(Pixel rgba, Pixel* buffer, int w, int h);
-
-/// make a rectangle buffer of a certain color
-Pixel* nib_rectangle(Pixel color, int w, int h);
-
-/// apply radius to a buffer with corners
-void nib_apply_radius(Pixel* buffer, int w, int h, int radius);
-
-/// rotate a buffer, padding is needed to avoid clipping
-Pixel* nib_rotate(Pixel* buffer, int degree, int w, int h);
-
-/// add padding
-Pixel* nib_add_padding(
-    Pixel* buffer, int w, int h,
-    int pad_left, int pad_right,
-    int pad_top, int pad_bottom,
-    Pixel pad_color,
-    int* out_w, int* out_h
-);
-
-/// resize image
-Pixel* nib_resize(
-    Pixel* buffer, int new_w,
-    int w, int h,
-    int* out_w, int* out_h
-);
-
-/// feather = 1 for anti-aliasing, anything beyond that is more blur than aa. 
-Pixel* nib_apply_antialiasing(Pixel* buffer, int w, int h, int feather);
-
-/// merge 2 buffers together
-void nib_merge_buffers(
-    Pixel* bg, int bw, int bh,
-    Pixel* fg, int fw, int fh,
-    int x0, int y0
-);
-
-/// before initializing the window, give it some initialization values
-void nib_set_window_info(char* name, int w, int h);
-
-/// use after initializing a buffer to avoid using a null value
-void nib_wait_for_buffer(void);
-
-/// start window
-GLFWwindow* nib_init_os_window(const char *title);
-
-/// check used to keep main loop running
-int nib_window_is_open(GLFWwindow* window);
-
-/// glfw stuff for terminating the program properly
-int nib_close_window(GLFWwindow* window);
-
-/// display the buffer as an opengl texture
-int nib_display_buffer(GLFWwindow *window, Pixel *buffer, int w, int h);
-
-// --------------- Adapting to window resize -------------------------------
-/// this is the signature of the function but its defined in example and you need to define it in your program aswell 
-void nib_frame_resize(GLFWwindow *window, int w, int h);
-
-// If you want frame resizing control you should call this right before the loop
-nib_read_window_size(window, frame_resize);
-/// this feeds the updated dimentions to the frame_resize function, and you deal with the rest
-
-
-//----------------------Event Handling-----------------------------------------
-
-/// These are straight-forward
- nib_read_window_size(window, func) 
- nib_wait_events() 
- nib_poll_events() 
- nib_set_key_callback(window, key_callback) 
- nib_set_mouse_click_callback(window, key_callback) 
- nib_set_cursor_position_callback(window, key_callback) 
+Pixel *main_buffer = nib_init_buffer(1000, 1000);
+// A 1D array of (Pixel){r, g, b, a} 
+// and each color is a floating number between 0.0f and 1.0f
 
 ```
+  
+Now we start the main loop:
+```c
+while (nib_window_is_open(window)) { 
+
+}
+```
+  
+  
+Inside the main loop, we can color the buffer:
+```c
+nib_fill_buffer((Pixel){1.0f, 0.2f, 1.0f, 1.0f}, main_buffer, 1000, 1000); // size needs to match the size of main_buffer
+
+```  
+  
+We can draw a square inside it
+```c
+Pixel* square = nib_rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
+nib_merge_buffers(a_buffer, w, h, square, 100, 100, 0, 0);
+//                                         w    h   x  y
+
+```  
+  
+Finally, tell opengl to show the buffer:
+```c
+nib_display_buffer(window, main_buffer, 1000, 1000);
+
+// block loop until events, the buffer doesnt get switched untill an event is set off
+nib_wait_events();
+  
+```
+  
+If i want the main buffer to fit the screen size every frame:
+```c
+static int h = 500; 
+static int w = 500;
+
+void size_callback(GLFWwindow *window, int nw, int nh) {
+  h = nh; w = nw;
+}
+
+// and then in the main loop
+glfwSetFramebufferSizeCallback(window, size_callback);
+// so this will call size callback whenever the window changes size between 2 frames
+```
+
+[!NOTE] 
+> I made some macros for events, however they are incomplete, and it is easier to just use GLFW's events directly.
+```c
+glfw_set_key_callback(glfw_window, callback);  // and so on...
+```
+
 

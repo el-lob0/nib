@@ -30,6 +30,14 @@ static void mouse_callback(GLFWwindow *window, int button, int action,
 //   nib_buffer.w = w; nib_buffer.h = h;
 // }
 
+static int h = 500; 
+static int w = 500;
+
+
+void size_callback(GLFWwindow *window, int nw, int nh) {
+  h = nh; w = nw;
+}
+
 int main(void) {
   GLFWwindow* window;
   const char* title = "title";
@@ -37,8 +45,7 @@ int main(void) {
 
   // this init buffer needs to match the size that nib_buffer was set to.
   Pixel *a_buffer = nib_init_buffer(500, 500);
-  int h = 500; int w = 500;
-  nib_wait_for_buffer();
+
 
   // the resize callback signal
   // nib_read_window_size(window, frame_resize);
@@ -46,6 +53,8 @@ int main(void) {
   nib_set_key_callback(window, key_press_callback);
   nib_set_mouse_click_callback(window, mouse_callback);
 
+
+  glfwSetFramebufferSizeCallback(window, size_callback);
 
 // start of main loop
   int offset = 0;
@@ -55,6 +64,10 @@ int main(void) {
 
     nib_fill_buffer((Pixel){1.0f, 0.2f, 1.0f, 1.0f}, a_buffer, w, h);
 
+    if (a_buffer != NULL) {
+      free(a_buffer);
+      a_buffer = nib_rectangle((Pixel){1.0f, 0.2f, 1.0f, 1.0f}, 500, 500);
+    }
 
 
     Pixel* square = nib_rectangle((Pixel){0.9f, 0.2f, 0.1f, 0.7f}, 100, 100);
